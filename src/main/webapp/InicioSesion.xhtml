@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+<title>Inicio Sesion</title>
+</h:head>
+<h:body>
+	<center>
+	<h2>INICIO DE SESION</h2>
+		<h:form class="contenedor">  
+			<p:panel>
+			<p:growl id="growl" showDetail="true" sticky="true"  />
+			<div id="Cuadro_email">
+				<br><p:inputText  id="correo" value="#{InicioBean.correo}" > </p:inputText></br>
+			</div>
+			<div id="Cuadro_pass">
+				<br><p:inputText  id="contrasena" type="password" value="#{InicioBean.contrasena}" > </p:inputText></br>
+			</div>
+			<div class="Botones">
+				<p:commandButton  styleClass="enviar"  value="Login" action="#{InicioBean.iniciar(InicioBean.correo,InicioBean.contrasena)}" style="border-radius: 15px" update="@form" />  
+			</div>
+			</p:panel>
+		</h:form>
+        </center>
+</h:body>
+</html>
