@@ -1,7 +1,7 @@
 package webApp;
 
 /**
- * Hello world!
+ * web app 2LateProject!
  *
  */
 public class App 
