@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.cvds.sampleprj.DAO;
-
-import edu.eci.cvds.samples.entities.Recurso;
+package edu.eci.cvds.persistence;
 
 /**
  *
  * @author 2152972
  */
-public class RecursoDAO {
+public class UsuarioDAO {
     
 }

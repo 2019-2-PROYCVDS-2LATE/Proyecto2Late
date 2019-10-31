@@ -1,12 +1,14 @@
 package edu.eci.cvds.samples.services;
 
+import static com.google.inject.Guice.createInjector;
+
 import com.google.inject.Injector;
+
 import edu.eci.cvds.security.Sesion;
 import edu.eci.cvds.security.Shiro;
+
 import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
-
-import static com.google.inject.Guice.createInjector;
 
 public class ServiciosBibliotecaFactory {
 

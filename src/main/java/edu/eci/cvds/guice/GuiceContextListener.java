@@ -9,21 +9,23 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-
-import edu.eci.cvds.security.Sesion;
-import edu.eci.cvds.security.Shiro;
 import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
 
-import edu.eci.cvds.sampleprj.DAO.RecursoDAO;
-import edu.eci.cvds.sampleprj.DAO.UsuarioDAO;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
-import edu.eci.cvds.sampleprj.dao.mybatis.MyBATISUsuarioDAO;
+import edu.eci.cvds.persistence.RecursoDAO;
+import edu.eci.cvds.persistence.UsuarioDAO;
+
+import edu.eci.cvds.security.Sesion;
+import edu.eci.cvds.security.Shiro;
+
+import edu.eci.cvds.persistense.mybatis.MyBATISUsuarioDAO;
 import edu.eci.cvds.samples.services.ServiciosBiblioteca;
 import edu.eci.cvds.samples.services.impl.ServiciosBiblioEciImpl;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
+
 
 /**
  *
@@ -45,13 +47,14 @@ public class GuiceContextListener implements ServletContextListener {
                 setEnvironmentId("development");
                 setClassPathResource("mybatis-config.xml");
                 
+                //Usuario
                 bind(UsuarioDAO.class).to(MyBATISUsuarioDAO.class);
+                //Login
                 bind(Sesion.class).to(Shiro.class);
                 
 
             }
         });
-
         servletContextEvent.getServletContext().setAttribute(Injector.class.getName(), injector);
     }
 }

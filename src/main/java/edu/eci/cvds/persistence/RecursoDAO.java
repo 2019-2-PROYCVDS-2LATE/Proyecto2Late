@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.cvds.sampleprj.DAO;
+package edu.eci.cvds.persistence;
+
+import edu.eci.cvds.samples.entities.Recurso;
 
 /**
  *
  * @author 2152972
  */
-public class DaoException extends Exception{
-    public DaoException(String message){
-        super(message);
-    }
+public class RecursoDAO {
+    
 }
