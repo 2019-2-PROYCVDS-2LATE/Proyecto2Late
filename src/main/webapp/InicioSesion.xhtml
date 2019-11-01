@@ -36,7 +36,11 @@
                     <br><p:inputText  id="contrasena" placeholder="&#128272; Contraseña" type="password" value="#{InicioBean.contrasena}" > </p:inputText></br>
                 </div>
                 <div class="Botones">
-                    <p:commandButton  styleClass="enviar"  value="Login" action="#{InicioBean.iniciar(InicioBean.correo,InicioBean.contrasena)}" style="border-radius: 15px" update="@form" />  
+                    <p:commandButton  styleClass="enviar"  value="Login" action="#{LoginBean.login}" style="border-radius: 15px" update="@form" />  
+                </div>
+                <div >
+                    <p:selectBooleanCheckbox  id="ckb1" value="#{InicioBean.rememberMe}" />
+                    <p:outputLabel class="label-check" value="Recuérdame" for="ckb1" />
                 </div>
                 </p:panel>
             </h:form>

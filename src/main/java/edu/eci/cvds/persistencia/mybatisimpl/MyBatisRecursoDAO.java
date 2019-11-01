@@ -20,7 +20,7 @@ import java.util.List;
 public class MyBatisRecursoDAO implements RecursoDAO{
     @Inject
     RecursoMapper recursoMapper;
-    public List<Recurso> loadAll() throws PersistenceException{
+    public List<Recurso> consultarRecursos() throws PersistenceException{
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

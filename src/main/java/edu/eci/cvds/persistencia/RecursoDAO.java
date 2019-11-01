@@ -13,7 +13,7 @@ import edu.eci.cvds.samples.entities.Recurso;
  * @author 2127790
  */
 public interface RecursoDAO {
-    public List<Recurso> loadAll() throws PersistenceException;
+    public List<Recurso> consultarRecursos() throws PersistenceException;
     
     public void save(Recurso b) throws PersistenceException;
     

@@ -14,11 +14,3 @@ CREATE TABLE IF NOT EXISTS Recurso (
   estado VARCHAR(45) NOT NULL,
   PRIMARY KEY (id));
 
-CREATE TABLE IF NOT EXISTS Reserva (
-  id INT NOT NULL,
-  fecha_ini DATE NOT NULL,
-  fecha_fin DATE NOT NULL,
-  recurso INTEGER NOT NULL REFERENCES Recurso(id),
-  usuario varchar(45) NOT NULL REFERENCES Usuario(correo),
-  PRIMARY KEY (id));
-

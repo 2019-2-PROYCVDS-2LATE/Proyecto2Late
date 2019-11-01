@@ -1,11 +1,37 @@
-<environments default="development">
-    <environment id="development">
-        <transactionManager type="JDBC" />
-        <dataSource type="POOLED">
-            <property name="driver" value="org.postgresql.Driver" />
-            <property name="url" value="[URL definitiva del punto 8.14, cambiando '&' por '&amp;']"/> 
-            <property name="username" value="[User del punto 8 o del punto 7]" />
-            <property name="password" value="[Contraseña del punto 8 o del punto 7]" />
-        </dataSource>
-    </environment>
-</environments>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--<settings>
+        <setting name="logImpl" value="LOG4J"/>        
+    </settings>-->
+    
+    <properties resource="config.properties">
+    </properties>
+    <typeAliases>
+        <typeAlias type="edu.eci.cvds.samples.entities.Recurso" alias="Recurso"/>
+        <typeAlias type="edu.eci.cvds.samples.entities.Usuario" alias="Usuario"/>
+    </typeAliases>	
+
+
+
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="org.postgresql.Driver" />
+                <property name="url" value="jdbc:postgresql://ec2-54-243-239-199.compute-1.amazonaws.com:5432/ddc9ighokv929j?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory"/> 
+                <property name="username" value="myyklrirtvpijf" />
+                <property name="password" value="e84008a00224da46f63331f7debfdc9a0a47e336400ec880500be9e42fbc9b2a" />
+            </dataSource>
+        </environment>
+    </environments>
+    
+    <mappers> 
+        <mapper resource="mappers/RecursoMapper.xml"></mapper>
+        <mapper resource="mappers/UsuarioMapper.xml"></mapper>
+    </mappers>
+   
+</configuration> 

@@ -18,9 +18,10 @@ import com.google.inject.Injector;
 import edu.eci.cvds.persistencia.RecursoDAO;
 import edu.eci.cvds.persistencia.UsuarioDAO;
 
-import edu.eci.cvds.persistencia.mybatis.MyBATISUsuarioDAO;
+import edu.eci.cvds.persistencia.mybatisimpl.MyBatisUsuarioDAO;
+import edu.eci.cvds.persistencia.mybatisimpl.MyBatisRecursoDAO;
 import edu.eci.cvds.samples.services.ServiciosBiblioteca;
-import edu.eci.cvds.samples.services.impl.ServiciosBiblioEciImpl;
+import edu.eci.cvds.samples.services.impl.ServiciosBibliotecaImpl;
 
 
 
@@ -45,9 +46,9 @@ public class GuiceContextListener implements ServletContextListener {
                 setClassPathResource("mybatis-config.xml");
                 
                 //Usuario
-                bind(UsuarioDAO.class).to(MyBATISUsuarioDAO.class);
+                bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
                 //recurso
-                bind(RecursoDAO.class).to(MyBATISRecursoDAO.class);
+                bind(RecursoDAO.class).to(MyBatisRecursoDAO.class);
 
             }
         });

@@ -15,9 +15,9 @@ import edu.eci.cvds.samples.entities.Recurso;
  * @author 2152972
  */
 public interface RecursoMapper {
-    public void insertRecurso(Recurso recurso);
-	
-    public List<Recurso> getRecursos();
-    
-    public void deleteAll();
+    public Recurso consultarRecurso(@Param("id") int id);
+
+    public void agregarRecurso(@Param("rec") Recurso rec);
+
+    public List<Recurso> consultarRecursos();
 }

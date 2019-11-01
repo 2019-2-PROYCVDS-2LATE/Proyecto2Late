@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="edu.eci.cvds.persistencia.mybatisimpl.mappers.RecursoMapper">
+	<resultMap type='Recurso' id='RecursoResult'>
+		<id property='id' column='id'/>
+		<result property='nombre' column='nombre'/> 
+		<result property='tipo' column='tipo'/>
+		<result property='tiempo_prestamo' column='capacidad'/>  
+		<result property='estado' column='estado'/>       
+	</resultMap>
+  
+  
+  <select parameterType='map' id='consultarRecurso' resultMap='RecursoResult'>
+    SELECT 
+      id, 
+      nombre,
+      ubicacion,
+      tipo,
+      capacidad,
+      estado
+      
+     FROM
+      recurso
+     WHERE
+      id=#{id};
+  </select>
+
+  <select parameterType='map' id='consultarRecursos' resultMap='RecursoResult'>
+    SELECT 
+      id, 
+      nombre,
+      ubicacion,
+      tipo,
+      capacidad,
+      recurso
+    FROM
+      reserva 
+  </select>
+
+  <insert parameterType="map" id="agregarRecurso">
+    INSERT INTO recurso values (#{rec.id}, #{rec.nombre}, #{rec.ubicacion}, #{rec.tipo}, #{rec.capacidad}, #{rec.estado});
+  </insert>
+  
+</mapper>

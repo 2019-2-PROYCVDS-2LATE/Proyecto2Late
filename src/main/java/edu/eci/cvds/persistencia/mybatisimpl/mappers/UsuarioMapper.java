@@ -15,11 +15,8 @@ import edu.eci.cvds.samples.entities.Usuario;
  * @author 2152972
  */
 public interface UsuarioMapper {
-    
-    public void insertUser(Usuario user);
 	
-    public List<Usuario> getUsers();
+    public Usuario consultarUsuario(@Param("correo") String correo);
     
-    public void deleteAll();
 
 }
