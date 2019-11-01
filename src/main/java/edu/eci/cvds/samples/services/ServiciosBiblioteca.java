@@ -14,9 +14,23 @@ import java.util.List;
  * @author 2152972
  */
 public interface ServiciosBiblioteca {
-    public abstract void registrarRecurso(Recurso cli) throws ServiciosBibliotecaException;
+    /**
+     * Registra un recurso
+     * @throws ServiciosBibliotecaException 
+     */
+    public abstract void registrarRecurso(Recurso rec) throws ServiciosBibliotecaException;
     
+    /**
+     * Consulta un recurso
+     * @return el recurso a consultar
+     * @throws ServiciosBibliotecaException 
+     */
     public abstract Recurso consultarRecurso(int id) throws ServiciosBibliotecaException;
 
+    /**
+     * Consulta todos los recursos
+     * @return una lista con todos los recursos
+     * @throws ServiciosBibliotecaException 
+     */
     public abstract List<Recurso> consultarRecursos() throws ServiciosBibliotecaException;
 }

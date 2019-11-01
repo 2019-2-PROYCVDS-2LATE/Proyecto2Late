@@ -3,9 +3,10 @@ package edu.eci.cvds.samples.services;
 import static com.google.inject.Guice.createInjector;
 
 import com.google.inject.Injector;
-
-import edu.eci.cvds.security.Sesion;
-import edu.eci.cvds.security.Shiro;
+import edu.eci.cvds.persistencia.RecursoDAO;
+import edu.eci.cvds.persistencia.UsuarioDAO;
+import edu.eci.cvds.persistencia.mybatisimpl.MyBatisRecursoDAO;
+import edu.eci.cvds.persistencia.mybatisimpl.MyBatisUsuarioDAO;
 
 import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
@@ -26,8 +27,8 @@ public class ServiciosBibliotecaFactory {
             protected void initialize() {
                 install(JdbcHelper.PostgreSQL);
                 setClassPathResource("mybatis-config.xml");
-                //bind(SesionLogger.class).to(ShiroLogger.class);
-
+                bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
+                bind(RecursoDAO.class).to(MyBatisRecursoDAO.class);
             }
         }
         );
@@ -37,18 +38,19 @@ public class ServiciosBibliotecaFactory {
             protected void initialize() {
                 install(JdbcHelper.PostgreSQL);
                 setClassPathResource("mybatis-config-h2.xml");
-                //bind(SesionLogger.class).to(ShiroLogger.class);
+                bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
+                bind(RecursoDAO.class).to(MyBatisRecursoDAO.class);
             }
         }
         );
 		
     }
 
-    public ServiciosBiblioEci getServiciosBiblioteca(){
+    public ServiciosBiblioteca getServiciosBiblioteca(){
         return injector.getInstance(ServiciosBiblioteca.class);
     }
 
-    public ServiciosBiblioEci getServiciosBibliotecaTesting(){
+    public ServiciosBiblioteca getServiciosBibliotecaTesting(){
         return testingInjector.getInstance(ServiciosBiblioteca.class);
     }
 
