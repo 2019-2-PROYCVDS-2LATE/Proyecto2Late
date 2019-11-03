@@ -13,11 +13,11 @@
 
 	<select parameterType='map' id='consultarUsuario' resultMap='RecursoResult'>
     SELECT
-			correo,
-      nombre,
+        correo,
+        nombre,
     FROM
-      usuario
+        usuario
      WHERE
-      correo=#{correo};
+        correo=#{correo};
   </select>
 </mapper>
