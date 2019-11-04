@@ -4,7 +4,6 @@
  */
 package edu.eci.cvds.beans;
 
-import java.io.File;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.crypto.hash.Sha256Hash;
@@ -28,10 +27,6 @@ public class ShiroLoginBean implements Serializable {
     private String email;
     private String password;
     private Boolean rememberMe;
-
-    public ShiroLoginBean() {
-
-    }
 
     public Subject getSubject() {
         return SecurityUtils.getSubject();
