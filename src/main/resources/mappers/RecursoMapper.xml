@@ -47,9 +47,4 @@
     FROM
       reserva 
   </select>
-
-  <insert parameterType="map" id="agregarRecurso">
-    INSERT INTO recurso values (#{rec.id}, #{rec.nombre}, #{rec.ubicacion}, #{rec.tipo}, #{rec.capacidad}, #{rec.estado});
-  </insert>
-  
 </mapper>

@@ -11,18 +11,17 @@ public class Recurso implements Serializable{
     private int identificadorInterno;
     private String nombre;
     private String ubicacion;
-    private String tipo;
+    private RecursoTipo tipo;
     private int capacidad;
-    private String estado;
+    private boolean estado;
 
 
-	public Recurso(int id, String nombre, String ubicacion, String tipo, int capacidad, String estado) {
-		this.identificadorInterno = id;
+	public Recurso(String nombre, String ubicacion, RecursoTipo tipo, int capacidad){
 		this.nombre = nombre;
 		this.ubicacion = ubicacion;
 		this.tipo = tipo;
 		this.capacidad = capacidad;
-		this.estado = estado;
+		this.estado = true;
 	}
 
 	public int getId() {
@@ -41,22 +40,23 @@ public class Recurso implements Serializable{
 		this.ubicacion = ubicacion;
 	}
 
-	public String getTipo() {
+	public RecursoTipo getTipo() {
 		return tipo;
 	}
 
 	public int getTiempo_prestamo() {
 		return capacidad;
 	}
+
 	public void setTiempo_prestamo(int tp) {
 		this.capacidad = tp;
 	}
 
-	public String getEstado() {
+	public boolean getEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
 }

@@ -11,7 +11,7 @@
 	</resultMap>
 
 
-	<select parameterType='map' id='consultarUsuario' resultMap='RecursoResult'>
+	<select parameterType='map' id='consultarUsuario' resultMap='UsuarioResult'>
     SELECT
         correo,
         nombre,
