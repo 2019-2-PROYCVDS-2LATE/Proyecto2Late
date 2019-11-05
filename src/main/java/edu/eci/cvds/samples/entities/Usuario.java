@@ -5,10 +5,47 @@
  */
 package edu.eci.cvds.samples.entities;
 
-/**
- *
- * @author 2152972
- */
-public class Usuario {
-    
+import java.io.Serializable;
+
+public class Usuario implements Serializable{
+
+	private String correo;
+	private String area;
+	private String nombre;
+	private String contraseña;
+
+	public Usuario(String correo, String area, String nombre) {
+
+		this.correo = correo;
+		this.area = area;
+		this.nombre = nombre;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getContraseña() {
+		return contraseña;
+	}
+
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
+	}
 }

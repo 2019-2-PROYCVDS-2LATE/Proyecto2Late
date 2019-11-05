@@ -7,71 +7,56 @@ package edu.eci.cvds.samples.entities;
 
 import java.io.Serializable;
 
-/**
- *
- * @author 2152972
- */
-public class Recurso implements Serializable {
-
+public class Recurso implements Serializable{
+    private int identificadorInterno;
     private String nombre;
     private String ubicacion;
-    private RecursoTipo tipo;
+    private String tipo;
     private int capacidad;
-    private int identificadorInterno;
-    private boolean estado;
+    private String estado;
 
-    public Recurso(String nombre,String ubicacion,RecursoTipo tipo,int capacidad){
-        this.capacidad = capacidad;
-        this.estado = true;
-        this.ubicacion = ubicacion;
-        this.tipo = tipo;
-    }
 
-    public int getCapacidad() {
-        return capacidad;
-    }
+	public Recurso(int id, String nombre, String ubicacion, String tipo, int capacidad, String estado) {
+		this.identificadorInterno = id;
+		this.nombre = nombre;
+		this.ubicacion = ubicacion;
+		this.tipo = tipo;
+		this.capacidad = capacidad;
+		this.estado = estado;
+	}
 
-    public void setCapacidad(int capacidad) {
-        this.capacidad = capacidad;
-    }
+	public int getId() {
+		return identificadorInterno;
+	}
 
-    public boolean isEstado() {
-        return estado;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
+	public String getUbicacion() {
+		return ubicacion;
+	}
 
-    public int getIdentificadorInterno() {
-        return identificadorInterno;
-    }
+	public void setUbicacion(String ubicacion) {
+		this.ubicacion = ubicacion;
+	}
 
-    public void setIdentificadorInterno(int identificadorInterno) {
-        this.identificadorInterno = identificadorInterno;
-    }
+	public String getTipo() {
+		return tipo;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public int getTiempo_prestamo() {
+		return capacidad;
+	}
+	public void setTiempo_prestamo(int tp) {
+		this.capacidad = tp;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public String getEstado() {
+		return estado;
+	}
 
-    public RecursoTipo getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(RecursoTipo tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getUbicacion() {
-        return ubicacion;
-    }
-
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
-    }
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
 }
