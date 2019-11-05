@@ -11,5 +11,34 @@ package edu.eci.cvds.samples.entities;
  */
 public class Usuario {
     
+	private String correo;
+	private String area;
+	private String nombre;
+
+	public Usuario(String correo, String area, String nombre) {
+		
+		this.correo = correo;
+		this.area = area;
+		this.nombre = nombre;
+	}
 	
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
 }
