@@ -4,13 +4,21 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="edu.eci.cvds.persistencia.mybatisimpl.mappers.RecursoMapper">
+
+    <insert parameterType="map" id="registrarRecurso" >
+        INSERT INTO recurso (nombre, ubicacion, tipo, capacidad,estado)
+            VALUES (#{rec.nombre},#{rec.ubicacion},#{rec.tipo},#{rec.capacidad},true)
+    </insert>
+
+
 	<resultMap type='Recurso' id='RecursoResult'>
-		<id property='id' column='id'/>
+		<id property='identificadorInterno' column='id'/>
 		<result property='nombre' column='nombre'/> 
 		<result property='tipo' column='tipo'/>
-		<result property='tiempo_prestamo' column='capacidad'/>  
-		<result property='estado' column='estado'/>       
-	</resultMap>
+		<result property='capacidad' column='capacidad'/>
+		<result property='estado' column='estado'/>
+        <result property='ubicacion' column='ubicacion'/>
+    </resultMap>
   
   
   <select parameterType='map' id='consultarRecurso' resultMap='RecursoResult'>

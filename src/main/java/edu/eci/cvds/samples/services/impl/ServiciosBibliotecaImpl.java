@@ -27,7 +27,9 @@ public class ServiciosBibliotecaImpl implements ServiciosBiblioteca{
     @Override
     public void registrarRecurso(Recurso cli) throws ServiciosBibliotecaException {
         try {
-            recursoDAO.save(cli);
+            System.out.println("si1");
+            recursoDAO.registrarRecurso(cli);
+            System.out.println("si2");
         } catch (PersistenceException e) {
             throw new ServiciosBibliotecaException("Error al guardar el recurso " + cli.toString(), e);
         }
@@ -38,7 +40,7 @@ public class ServiciosBibliotecaImpl implements ServiciosBiblioteca{
     public Recurso consultarRecurso(int id) throws ServiciosBibliotecaException {
         Recurso ans = null;
         try {
-            ans = recursoDAO.load(id);
+            ans = recursoDAO.consultarRecurso(id);
         } catch (PersistenceException e) {
             throw new ServiciosBibliotecaException("Error al consultar el recurso " + id, e);
         }

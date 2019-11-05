@@ -15,20 +15,32 @@ import java.util.List;
 
 /**
  *
- * @author 2127790
+ * @author 2152972
  */
 public class MyBatisRecursoDAO implements RecursoDAO{
     @Inject
     RecursoMapper recursoMapper;
+
+    @Override
     public List<Recurso> consultarRecursos() throws PersistenceException{
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
-    public void save(Recurso b) throws PersistenceException{
-        throw new UnsupportedOperationException("Not supported yet.");
+
+    @Override
+    public void registrarRecurso(Recurso b) throws PersistenceException {
+        try{
+            System.out.println("si4");
+            recursoMapper.registrarRecurso(b);
+            System.out.println("si5");
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            System.out.println(e.getMessage());
+            throw new PersistenceException("Elemento ya existe",e);
+        }
     }
-    
-    public Recurso load(int recursoID) throws PersistenceException{
+
+    @Override
+    public Recurso consultarRecurso(int recursoID) throws PersistenceException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }

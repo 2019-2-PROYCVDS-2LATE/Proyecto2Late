@@ -18,19 +18,19 @@ public interface ServiciosBiblioteca {
      * Registra un recurso
      * @throws ServiciosBibliotecaException 
      */
-    public abstract void registrarRecurso(Recurso rec) throws ServiciosBibliotecaException;
+    void registrarRecurso(Recurso rec) throws ServiciosBibliotecaException;
     
     /**
      * Consulta un recurso
      * @return el recurso a consultar
      * @throws ServiciosBibliotecaException 
      */
-    public abstract Recurso consultarRecurso(int id) throws ServiciosBibliotecaException;
+    Recurso consultarRecurso(int id) throws ServiciosBibliotecaException;
 
     /**
      * Consulta todos los recursos
      * @return una lista con todos los recursos
      * @throws ServiciosBibliotecaException 
      */
-    public abstract List<Recurso> consultarRecursos() throws ServiciosBibliotecaException;
+    List<Recurso> consultarRecursos() throws ServiciosBibliotecaException;
 }

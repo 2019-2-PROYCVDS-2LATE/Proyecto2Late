@@ -15,8 +15,8 @@ import edu.eci.cvds.samples.entities.Recurso;
 public interface RecursoDAO {
     public List<Recurso> consultarRecursos() throws PersistenceException;
     
-    public void save(Recurso b) throws PersistenceException;
+    public void registrarRecurso(Recurso b) throws PersistenceException;
     
-    public Recurso load(int recursoID) throws PersistenceException;
+    public Recurso consultarRecurso(int recursoID) throws PersistenceException;
     
 }

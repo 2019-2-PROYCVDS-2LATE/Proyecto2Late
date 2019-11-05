@@ -8,6 +8,7 @@ import edu.eci.cvds.persistencia.UsuarioDAO;
 import edu.eci.cvds.persistencia.mybatisimpl.MyBatisRecursoDAO;
 import edu.eci.cvds.persistencia.mybatisimpl.MyBatisUsuarioDAO;
 
+import edu.eci.cvds.samples.services.impl.ServiciosBibliotecaImpl;
 import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
 
@@ -27,6 +28,7 @@ public class ServiciosBibliotecaFactory {
             protected void initialize() {
                 install(JdbcHelper.PostgreSQL);
                 setClassPathResource("mybatis-config.xml");
+                bind(ServiciosBiblioteca.class).to(ServiciosBibliotecaImpl.class);
                 bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
                 bind(RecursoDAO.class).to(MyBatisRecursoDAO.class);
             }
@@ -38,6 +40,7 @@ public class ServiciosBibliotecaFactory {
             protected void initialize() {
                 install(JdbcHelper.PostgreSQL);
                 setClassPathResource("mybatis-config-h2.xml");
+                bind(ServiciosBiblioteca.class).to(ServiciosBibliotecaImpl.class);
                 bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
                 bind(RecursoDAO.class).to(MyBatisRecursoDAO.class);
             }

@@ -17,7 +17,7 @@ import edu.eci.cvds.samples.entities.Recurso;
 public interface RecursoMapper {
     public Recurso consultarRecurso(@Param("id") int id);
 
-    public void agregarRecurso(@Param("rec") Recurso rec);
+    public void registrarRecurso(@Param("rec") Recurso rec);
 
     public List<Recurso> consultarRecursos();
 }
