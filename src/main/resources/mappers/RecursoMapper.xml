@@ -6,8 +6,8 @@
 <mapper namespace="edu.eci.cvds.persistencia.mybatisimpl.mappers.RecursoMapper">
 
     <insert parameterType="map" id="registrarRecurso" >
-        INSERT INTO recurso (nombre, ubicacion, tipo, capacidad,estado)
-            VALUES (#{rec.nombre},#{rec.ubicacion},#{rec.tipo},#{rec.capacidad},true)
+        INSERT INTO recurso (nombre, ubicacion, tipo, capacidad, estado)
+            VALUES (#{rec.nombre},#{rec.ubicacion},#{rec.tipo},#{rec.capacidad},#{rec.estado})
     </insert>
 
 
@@ -43,8 +43,8 @@
       ubicacion,
       tipo,
       capacidad,
-      recurso
+      estado
     FROM
-      reserva 
+      recurso
   </select>
 </mapper>

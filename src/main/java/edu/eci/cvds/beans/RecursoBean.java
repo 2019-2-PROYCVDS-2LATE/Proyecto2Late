@@ -26,7 +26,7 @@ public class RecursoBean implements Serializable {
     private RecursoTipo recursoTipo;
     private int capacidad;
     private String identificadorInterno;
-    private boolean estado;
+    private String estado;
 
     public RecursoBean(){
         serviciosBiblioteca = ServiciosBibliotecaFactory.getInstance().getServiciosBiblioteca();
@@ -78,17 +78,32 @@ public class RecursoBean implements Serializable {
 
     public void registrarRecurso() {
         try{
-            System.out.println("si");
             Recurso recurso = new Recurso(nombre, ubicacion, recursoTipo, capacidad);
-            System.out.println("recurso ");
+
             serviciosBiblioteca.registrarRecurso(recurso);
-            System.out.println("fin");
+
             facesError("Registro exitoso");
 
         } catch (ServiciosBibliotecaException e) {
             facesError(e.getMessage());
         }
     }
+
+    public void consultarRecursos(){
+        try {
+            for(int i=0;i<1;i++) {
+                System.out.println(serviciosBiblioteca.consultarRecursos().get(i).getId());
+                System.out.println(serviciosBiblioteca.consultarRecursos().get(i).getNombre());
+                System.out.println(serviciosBiblioteca.consultarRecursos().get(i).getTipo());
+            }
+
+            facesError("Consulta exitosa");
+        }catch (ServiciosBibliotecaException e) {
+            facesError(e.getMessage());
+        }
+    }
+
+
     /**
      * Adds a new SEVERITY_ERROR FacesMessage for the ui
      * @param message Error Message

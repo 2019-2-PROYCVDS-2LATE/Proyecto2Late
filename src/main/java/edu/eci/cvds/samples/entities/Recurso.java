@@ -13,7 +13,7 @@ public class Recurso implements Serializable{
     private String ubicacion;
     private RecursoTipo tipo;
     private int capacidad;
-    private boolean estado;
+    private String estado;
 
 
 	public Recurso(String nombre, String ubicacion, RecursoTipo tipo, int capacidad){
@@ -21,7 +21,19 @@ public class Recurso implements Serializable{
 		this.ubicacion = ubicacion;
 		this.tipo = tipo;
 		this.capacidad = capacidad;
-		this.estado = true;
+		this.estado = "Disponible";
+	}
+	public Recurso(int identificadorInterno,String nombre, String ubicacion, String tipo, int capacidad,String estado){
+		if(RecursoTipo.EQUIPO_COMPUTO.name().equals(tipo)){ this.tipo =RecursoTipo.EQUIPO_COMPUTO;}
+		else if(RecursoTipo.EQUIPO_MULTIMEDIA.name().equals(tipo)){ this.tipo =RecursoTipo.EQUIPO_MULTIMEDIA;}
+		else {this.tipo =RecursoTipo.SALA_ESTUDIO;}
+		this.nombre = nombre;
+		this.ubicacion = ubicacion;
+
+		this.capacidad = capacidad;
+		this.estado = estado;
+		this.identificadorInterno = identificadorInterno;
+
 	}
 
 	public int getId() {
@@ -52,11 +64,11 @@ public class Recurso implements Serializable{
 		this.capacidad = tp;
 	}
 
-	public boolean getEstado() {
+	public String getEstado() {
 		return estado;
 	}
 
-	public void setEstado(boolean estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 }

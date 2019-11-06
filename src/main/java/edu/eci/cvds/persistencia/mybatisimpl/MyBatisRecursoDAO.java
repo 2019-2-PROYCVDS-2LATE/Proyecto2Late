@@ -23,15 +23,15 @@ public class MyBatisRecursoDAO implements RecursoDAO{
 
     @Override
     public List<Recurso> consultarRecursos() throws PersistenceException{
-        throw new UnsupportedOperationException("Not supported yet.");
+        return recursoMapper.consultarRecursos();
     }
 
     @Override
     public void registrarRecurso(Recurso b) throws PersistenceException {
         try{
-            System.out.println("si4");
+
             recursoMapper.registrarRecurso(b);
-            System.out.println("si5");
+
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
             System.out.println(e.getMessage());

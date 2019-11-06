@@ -27,9 +27,9 @@ public class ServiciosBibliotecaImpl implements ServiciosBiblioteca{
     @Override
     public void registrarRecurso(Recurso cli) throws ServiciosBibliotecaException {
         try {
-            System.out.println("si1");
+
             recursoDAO.registrarRecurso(cli);
-            System.out.println("si2");
+
         } catch (PersistenceException e) {
             throw new ServiciosBibliotecaException("Error al guardar el recurso " + cli.toString(), e);
         }
