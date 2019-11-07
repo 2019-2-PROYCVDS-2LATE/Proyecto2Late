@@ -34,7 +34,7 @@ element.style {
     justify-content: space-between;
     display:block;
     margin:auto;
-
+	  margin-top: 5px;
 }
 .contenedorlogos img{
     margin-top: 5px;
@@ -70,6 +70,7 @@ element.style {
     width: 100%;
     max-width: 1200px;
     margin: 10px auto;
+	margin-top: 50px;
 }
 div {
     display: block;
@@ -178,5 +179,5 @@ footer {
     font-size: 12px;
     top:80%;
     text-align: center;
-
+	margin-top: 110px;
 }
