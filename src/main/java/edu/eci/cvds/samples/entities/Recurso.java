@@ -23,10 +23,14 @@ public class Recurso implements Serializable{
 		this.capacidad = capacidad;
 		this.estado = "Disponible";
 	}
-	public Recurso(int identificadorInterno,String nombre, String ubicacion, String tipo, int capacidad,String estado){
-		if(RecursoTipo.EQUIPO_COMPUTO.name().equals(tipo)){ this.tipo =RecursoTipo.EQUIPO_COMPUTO;}
-		else if(RecursoTipo.EQUIPO_MULTIMEDIA.name().equals(tipo)){ this.tipo =RecursoTipo.EQUIPO_MULTIMEDIA;}
-		else {this.tipo =RecursoTipo.SALA_ESTUDIO;}
+	public Recurso(int identificadorInterno,String nombre, String ubicacion, String tipo, int capacidad,String estado) {
+		if (RecursoTipo.EQUIPO_COMPUTO.name().equals(tipo)) {
+			this.tipo = RecursoTipo.EQUIPO_COMPUTO;
+		} else if (RecursoTipo.EQUIPO_MULTIMEDIA.name().equals(tipo)) {
+			this.tipo = RecursoTipo.EQUIPO_MULTIMEDIA;
+		} else {
+			this.tipo = RecursoTipo.SALA_ESTUDIO;
+		}
 		this.nombre = nombre;
 		this.ubicacion = ubicacion;
 
@@ -36,8 +40,12 @@ public class Recurso implements Serializable{
 
 	}
 
-	public int getId() {
-		return identificadorInterno;
+	public int getIdentificadorInterno() {
+			return identificadorInterno;
+	}
+
+	public void setIdentificadorInterno(int identificadorInterno) {
+		this.identificadorInterno = identificadorInterno;
 	}
 
 	public String getNombre() {
@@ -70,5 +78,21 @@ public class Recurso implements Serializable{
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+
+	public int getCapacidad() {
+		return capacidad;
+	}
+
+	public void setCapacidad(int capacidad) {
+		this.capacidad = capacidad;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setTipo(RecursoTipo tipo) {
+		this.tipo = tipo;
 	}
 }

@@ -44,12 +44,14 @@
 	                    <p:inputText id="marca4" value="#{recursoBean.capacidad}" required="true"/>
                 	</p:panelGrid>
 	                <f:facet name="footer">
-	                    <h:commandButton class="botonRegistrar" value="Registrar" style="border-radius: 15px" actionListener="#{recursoBean.consultarRecursos()}" update="@form"/>
+	                    <h:commandButton class="botonRegistrar" value="Registrar" style="border-radius: 15px" actionListener="#{recursoBean.registrarRecurso()}" update="@form"/>
 	                </f:facet>
                 </p:panel>
             </center>
          </h:form>
     </div> 
+    
+
 
 
 	<footer id="footerinvestigacion">

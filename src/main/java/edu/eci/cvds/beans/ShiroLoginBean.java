@@ -42,7 +42,7 @@ public class ShiroLoginBean implements Serializable {
         try {
             currentUser.login(token);
             currentUser.getSession().setAttribute("correo",email);
-            FacesContext.getCurrentInstance().getExternalContext().redirect("admin/Home.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("admin/index.xhtml");
         }
         catch (UnknownAccountException ex) {
             facesError("Unknown account");

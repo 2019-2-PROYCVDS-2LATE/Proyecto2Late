@@ -13,6 +13,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
+import java.util.List;
 
 @ManagedBean(name = "recursoBean")
 @ViewScoped
@@ -27,6 +28,17 @@ public class RecursoBean implements Serializable {
     private int capacidad;
     private String identificadorInterno;
     private String estado;
+    private List<Recurso> recursosList;
+
+    public List<Recurso> getRecursosList() {
+        recursosList = consultarRecursos();
+        return recursosList;
+    }
+
+    public void setRecursoList(List<Recurso> recursosList) {
+        this.recursosList = recursosList;
+    }
+
 
     public RecursoBean(){
         serviciosBiblioteca = ServiciosBibliotecaFactory.getInstance().getServiciosBiblioteca();
@@ -89,18 +101,16 @@ public class RecursoBean implements Serializable {
         }
     }
 
-    public void consultarRecursos(){
+    public List<Recurso> consultarRecursos(){
+        List<Recurso> recs = null;
         try {
-            for(int i=0;i<1;i++) {
-                System.out.println(serviciosBiblioteca.consultarRecursos().get(i).getId());
-                System.out.println(serviciosBiblioteca.consultarRecursos().get(i).getNombre());
-                System.out.println(serviciosBiblioteca.consultarRecursos().get(i).getTipo());
-            }
+            recs = serviciosBiblioteca.consultarRecursos();
 
             facesError("Consulta exitosa");
         }catch (ServiciosBibliotecaException e) {
             facesError(e.getMessage());
         }
+        return recs;
     }
 
 

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>Consulta Recurso </title>
+	<link rel="stylesheet" href="/Recursos/RegistroRec.css" />
+	<link rel="shortcut icon" href="/Recursos/favicon.ico" />
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"/>
+    
+</h:head>
+<h:body style="overflow-x:hidden; overflow-y:scroll">
+	<header>
+        <div class="contenedorlogos"> 
+            <div id="logoescuela">
+                <img src="/Recursos/libros.jpg" width="700" height="150" ></img>
+                    
+            </div>
+        </div>
+        <a href="/logout" class="topright">
+			logout
+		</a>  
+    </header>
+	
+
+    <div class="container">
+        <center>	
+            <h:form id="form">
+				<p:panel>
+			        <p:fieldset legend="Recursos">
+			            <p:dataTable id="recursosTable" value="#{recursoBean.recursosList}" var="rec" widgetVar="recTable"
+			                         rows="10" paginator="true" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+			                         sortMode="multiple">
+			                <p:column headerText="Id" sortBy="#{rec.identificadorInterno}">
+			                    <h:outputText value="#{rec.identificadorInterno}"/>
+			                </p:column>
+			                <p:column headerText="Tipo" sortBy="#{rec.tipo}" filterMatchMode="exact" filterBy="#{rec.tipo}">
+			                    <f:facet name="filter">
+			                        <p:selectOneMenu onchange="PF('recTable').filter()" styleClass="custom-filter">
+			                            <f:selectItem itemLabel="Seleccionar" itemValue="#{null}" noSelectionOption="true" />
+			                            <f:selectItems value="#{recursoBean.recursoTipos()}"/>
+			                        </p:selectOneMenu>
+			                    </f:facet>
+			                    <h:outputText value="#{rec.tipo}"/>
+			                </p:column>
+			                <p:column headerText="Nombre" sortBy="#{rec.nombre}">
+			                    <h:outputText value="#{rec.nombre}"/>
+			                </p:column>
+			                 <p:column headerText="Ubicacion" sortBy="#{rec.ubicacion}" filterBy="#{rec.ubicacion}" filterMatchMode="exact">
+			                    <h:outputText value="#{rec.ubicacion}"/>
+			                </p:column>
+			                 <p:column headerText="Capacidad" sortBy="#{rec.capacidad}" filterBy="#{rec.capacidad}" filterMatchMode="exact">
+			                    <h:outputText value="#{rec.capacidad}"/>
+			                </p:column>
+			               
+			                <p:column headerText="estado" sortBy="#{rec.estado}">
+			                    <h:outputText value="#{rec.estado}"/>
+			                </p:column>
+			            </p:dataTable>
+			        </p:fieldset>
+			    </p:panel>
+
+            </h:form>
+        </center>
+    </div>
+    <div class="registro">
+    	<center>
+             <div class="container">
+                <a class="toggleMenu" href="#" style="display: none;">Menu</a>
+                 <ul class="nav" style="display: block;">
+                        <li>
+                            <a href="Home.xhtml"><i class="fa fa-edit" style="font-size:35px"></i>Reservar</a>
+                         </li>
+                         
+                 </ul>
+             </div>
+         </center>     
+     </div>
+
+
+	<footer id="footerinvestigacion">
+		<div class="footercontainer">
+			<div class="direccion">
+				<p>ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO</p>
+				<br>AK.45 No.205-59 (Autopista Norte)</br>
+				Contact center: 57(1) 668 3600
+				<br>Linea Nacional Gratuita: 018000112668</br>
+				Informacion <detalla></detalla>da en: www.escuelaing.edu.co<br></br>
+				Vigilada Mineducacion.
+				<br><br>Bogota, D.C. - Colombia</br></br>
+			</div>
+		</div>
+	</footer>
+</h:body>
+</html>
