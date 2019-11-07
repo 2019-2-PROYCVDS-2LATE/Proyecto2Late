@@ -37,21 +37,15 @@
                             
                         <h:outputText value="Identificador:" />
 	                    <p:inputText id="marca1" value="#{recursoBean.identificadorInterno}" required="true"/>
-	                	<h:outputText value="Nombre:" />
-	                    <p:inputText id="marca2" value="#{recursoBean.nombre}" required="true"/>
-
-	                    <h:outputText value="Ubicacion:" />
-	                    <p:inputText id="marca3" value="#{recursoBean.ubicacion}" required="true"/>
-
-	                    
-
-	                    <h:outputText value="Capacidad:" />
-	                    <p:inputText id="marca4" value="#{recursoBean.capacidad}" required="true"/>
+	                	
+                        
+	                    <h:outputText value="Nuevo Estado:" />
+	                    <p:inputText id="marca4" value="#{recursoBean.estado}" required="true"/>
                             
                 	</p:panelGrid>
-	                <li>
-                            <a href="index.xhtml"><i class="fa fa-user" style="font-size:35px"></i>Modificar Recurso</a>
-                        </li> 
+	                <f:facet name="footer">
+	                    <h:commandButton class="botonModificar" value="Modificar" style="border-radius: 15px" actionListener="#{recursoBean.modificarRecurso()}" update="@form"/>
+	                </f:facet>
                 </p:panel>
             </center>
          </h:form>

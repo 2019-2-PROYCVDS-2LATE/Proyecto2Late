@@ -24,7 +24,7 @@ public interface ServiciosBiblioteca {
      * Modifica los valores de un recurso
      * @throws ServiciosBibliotecaException 
      */
-    void modificarRecurso(String id, String nom, String ubi, int cap, String est) throws ServiciosBibliotecaException;
+    void modificarRecurso(String id, String est) throws ServiciosBibliotecaException;
     
     /**
      * Consulta un recurso

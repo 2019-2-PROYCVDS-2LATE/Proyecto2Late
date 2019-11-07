@@ -87,6 +87,7 @@ public class RecursoBean implements Serializable {
     public String getEstado(){
         return estado;
     }
+
     public void setEstado(String est){
         estado = est;
     }
@@ -110,7 +111,7 @@ public class RecursoBean implements Serializable {
 
     public void modificarRecurso(){
         try{
-            serviciosBiblioteca.modificarRecurso(identificadorInterno, nombre, ubicacion, capacidad, "No disponible");
+            serviciosBiblioteca.modificarRecurso(identificadorInterno, estado);
         }catch (ServiciosBibliotecaException e) {
             facesError(e.getMessage());
         }

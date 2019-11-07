@@ -19,7 +19,7 @@ public interface RecursoMapper {
 
     public void registrarRecurso(@Param("rec") Recurso rec);
     
-    public void modificarRecurso(@Param("id") String id, @Param("nom") String nom, @Param("ubi") String ubi, @Param("cap") int cap, @Param("est") String est);
+    public void modificarRecurso(@Param("id") int id, @Param("est") String est);
 
     public List<Recurso> consultarRecursos();
 }
