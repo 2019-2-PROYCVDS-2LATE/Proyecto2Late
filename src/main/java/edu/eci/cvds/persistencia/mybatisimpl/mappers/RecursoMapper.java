@@ -18,6 +18,8 @@ public interface RecursoMapper {
     public Recurso consultarRecurso(@Param("id") int id);
 
     public void registrarRecurso(@Param("rec") Recurso rec);
+    
+    public void modificarRecurso(@Param("id") String id, @Param("nom") String nom, @Param("ubi") String ubi, @Param("cap") int cap, @Param("est") String est);
 
     public List<Recurso> consultarRecursos();
 }

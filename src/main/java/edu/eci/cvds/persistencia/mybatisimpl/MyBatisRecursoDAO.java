@@ -43,4 +43,8 @@ public class MyBatisRecursoDAO implements RecursoDAO{
     public Recurso consultarRecurso(int recursoID) throws PersistenceException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+    @Override
+    public void modificarRecurso(String recursoID, String nom, String ubi, int cap, String est){
+        recursoMapper.modificarRecurso(recursoID, nom, ubi, cap, est);
+    }
 }

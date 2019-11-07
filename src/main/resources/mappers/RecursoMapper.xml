@@ -36,7 +36,7 @@
       id=#{id};
   </select>
 
-  <select parameterType='map' id='consultarRecursos' resultMap='RecursoResult'>
+  <select parameterType='map' id='consultarRecursos' resultMap='RecursosResult'>
     SELECT 
       id, 
       nombre,
@@ -47,4 +47,12 @@
     FROM
       recurso
   </select>
+  <update parameterType='map' id='modificarRecursos'>
+      update recursos 
+      nombre = #{nom}
+      ubicacion = #{ubi}
+      capacidad = #{cap}
+      estado = #{est}
+      where id = #{id}
+  </update>
 </mapper>

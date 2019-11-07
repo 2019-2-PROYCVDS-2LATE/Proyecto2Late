@@ -83,6 +83,13 @@ public class RecursoBean implements Serializable {
     public String getUbicacion() {
         return ubicacion;
     }
+    
+    public String getEstado(){
+        return estado;
+    }
+    public void setEstado(String est){
+        estado = est;
+    }
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
@@ -101,6 +108,14 @@ public class RecursoBean implements Serializable {
         }
     }
 
+    public void modificarRecurso(){
+        try{
+            serviciosBiblioteca.modificarRecurso(identificadorInterno, nombre, ubicacion, capacidad, "No disponible");
+        }catch (ServiciosBibliotecaException e) {
+            facesError(e.getMessage());
+        }
+        
+    }
     public List<Recurso> consultarRecursos(){
         List<Recurso> recs = null;
         try {

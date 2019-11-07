@@ -35,6 +35,16 @@ public class ServiciosBibliotecaImpl implements ServiciosBiblioteca{
         }
 
     }
+    
+    @Override
+    public void modificarRecurso(String id, String nom, String ubi, int cap, String est){
+        try{
+            recursoDAO.modificarRecurso(id, nom, ubi, cap, est);
+        }catch (PersistenceException e) {
+            
+        }
+        
+    }
 
     @Override
     public Recurso consultarRecurso(int id) throws ServiciosBibliotecaException {

@@ -21,6 +21,12 @@ public interface ServiciosBiblioteca {
     void registrarRecurso(Recurso rec) throws ServiciosBibliotecaException;
     
     /**
+     * Modifica los valores de un recurso
+     * @throws ServiciosBibliotecaException 
+     */
+    void modificarRecurso(String id, String nom, String ubi, int cap, String est) throws ServiciosBibliotecaException;
+    
+    /**
      * Consulta un recurso
      * @return el recurso a consultar
      * @throws ServiciosBibliotecaException 

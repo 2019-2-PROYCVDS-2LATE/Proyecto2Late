@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>Modificar Recurso </title>
+	<link rel="stylesheet" href="/Recursos/RegistroRec.css" />
+	<link rel="shortcut icon" href="/Recursos/favicon.ico" />
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"/>
+    
+</h:head>
+<h:body style="overflow-x:hidden; overflow-y:scroll">
+	<header>
+        <div class="contenedorlogos"> 
+            <div id="logoescuela">
+                <img src="/Recursos/libros.jpg" class="rounded" width="700" height="150" ></img>
+                    
+            </div>
+        </div>
+		<button type="button" class="btn btn-outline-primary">
+	        <a href="/logout" class="topright">
+				logout
+			</a>  
+		</button>
+    </header>
+	
+	<aside>
+	    <div class="container">
+
+        <h:form id = "modEqui">
+            <center>
+                <p:panel header="Modificacion de recurso" style="width: 400px;" id="panel">
+                    <p:panelGrid columns="2" style="margin-bottom: 5px;" >
+                            
+                        <h:outputText value="Identificador:" />
+	                    <p:inputText id="marca1" value="#{recursoBean.identificadorInterno}" required="true"/>
+	                	<h:outputText value="Nombre:" />
+	                    <p:inputText id="marca2" value="#{recursoBean.nombre}" required="true"/>
+
+	                    <h:outputText value="Ubicacion:" />
+	                    <p:inputText id="marca3" value="#{recursoBean.ubicacion}" required="true"/>
+
+	                    
+
+	                    <h:outputText value="Capacidad:" />
+	                    <p:inputText id="marca4" value="#{recursoBean.capacidad}" required="true"/>
+                            
+                	</p:panelGrid>
+	                <li>
+                            <a href="index.xhtml"><i class="fa fa-user" style="font-size:35px"></i>Modificar Recurso</a>
+                        </li> 
+                </p:panel>
+            </center>
+         </h:form>
+    </div> 
+	    <div class="registro">
+	    	<center>
+	             <div class="container">
+	                <a class="toggleMenu" href="#" style="display: none;">Menu</a>
+	                 <ul class="nav" style="display: block;">
+	                        <li>
+	                            <a href="index.xhtml"><i class="fa fa-edit" style="font-size:35px"></i>Volver</a>
+	                         </li>
+	                         
+	                 </ul>
+	             </div>
+	         </center>     
+	     </div>
+	 </aside>
+
+
+	<footer id="footerinvestigacion">
+		<div class="footercontainer">
+			<div class="direccion">
+				<p>ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO</p>
+				<br>AK.45 No.205-59 (Autopista Norte)</br>
+				Contact center: 57(1) 668 3600
+				<br>Linea Nacional Gratuita: 018000112668</br>
+				Informacion <detalla></detalla>da en: www.escuelaing.edu.co<br></br>
+				Vigilada Mineducacion.
+				<br><br>Bogota, D.C. - Colombia</br></br>
+			</div>
+		</div>
+	</footer>
+</h:body>
+</html>
