@@ -20,10 +20,71 @@ public class Prestamo {
         this.IdRecurso =  IdRecurso;
         this.horaInicio =  horaInicio;
     }
+    
     public Prestamo(String correoUsuario, String IdRecurso, Date horaInicio, int duracion){
         this.correoUsuario =  correoUsuario;
         this.IdRecurso =  IdRecurso;
         this.horaInicio =  horaInicio;
         this.duracion = duracion;
-    }        
+    }
+
+    /**
+     * @return the correoUsuario
+     */
+    public String getCorreoUsuario() {
+        return correoUsuario;
+    }
+
+    /**
+     * @param correoUsuario the correoUsuario to set
+     */
+    public void setCorreoUsuario(String correoUsuario) {
+        this.correoUsuario = correoUsuario;
+    }
+
+    /**
+     * @return the IdRecurso
+     */
+    public String getIdRecurso() {
+        return IdRecurso;
+    }
+
+    /**
+     * @param IdRecurso the IdRecurso to set
+     */
+    public void setIdRecurso(String IdRecurso) {
+        this.IdRecurso = IdRecurso;
+    }
+
+    /**
+     * @return the horaInicio
+     */
+    public Date getHoraInicio() {
+        return horaInicio;
+    }
+
+    /**
+     * @param horaInicio the horaInicio to set
+     */
+    public void setHoraInicio(Date horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    /**
+     * @return the duracion
+     */
+    public int getDuracion() {
+        return duracion;
+    }
+
+    /**
+     * @param duracion the duracion to set
+     */
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+    
+    
+    
+    
 }
