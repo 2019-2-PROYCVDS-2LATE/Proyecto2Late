@@ -26,6 +26,6 @@ public interface PrestamoMapper {
     
     public void modificarFechaPrestamo(@Param("id") int id, @Param("fecha") Date date);
     
-    public List<Prestamo> consultarPrestamo();
+    public List<Prestamo> consultarPrestamos();
 
 }

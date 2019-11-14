@@ -21,6 +21,6 @@ public interface PrestamoDAO {
     
     public void modificarFechaPrestamo( int id,  Date date) throws PersistenceException;
     
-    public List<Prestamo> consultarPrestamo() throws PersistenceException;
+    public List<Prestamo> consultarPrestamos() throws PersistenceException;
     
 }
