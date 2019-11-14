@@ -8,11 +8,6 @@ import com.google.inject.Inject;
 
 
 
-import edu.eci.cvds.persistencia.PrestamoDAO;
-import edu.eci.cvds.persistencia.mybatisimpl.mappers.PrestamoMapper;
-import java.util.List;
-import edu.eci.cvds.persistencia.PersistenceException;
-import edu.eci.cvds.samples.entities.Prestamo;
 
 import java.util.Date;
 
