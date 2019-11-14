@@ -10,7 +10,7 @@ import edu.eci.cvds.samples.entities.Recurso;
 
 /**
  *
- * @author 2152972
+ * @author 2LateTeam
  */
 public interface RecursoDAO {
     public List<Recurso> consultarRecursos() throws PersistenceException;
