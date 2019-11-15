@@ -16,16 +16,16 @@ public class Prestamo {
     private int duracion; //duracion en horas 
     
     public Prestamo(String correoUsuario, String IdRecurso, Date horaInicio){
-        this.correoUsuario =  correoUsuario;
-        this.IdRecurso =  IdRecurso;
-        this.horaInicio =  horaInicio;
+        this.setCorreoUsuario(correoUsuario);
+        this.setIdRecurso(IdRecurso);
+        this.setHoraInicio(horaInicio);
     }
     
     public Prestamo(String correoUsuario, String IdRecurso, Date horaInicio, int duracion){
-        this.correoUsuario =  correoUsuario;
-        this.IdRecurso =  IdRecurso;
-        this.horaInicio =  horaInicio;
-        this.duracion = duracion;
+        this.setCorreoUsuario(correoUsuario);
+        this.setIdRecurso(IdRecurso);
+        this.setHoraInicio(horaInicio);
+        this.setDuracion(duracion);
     }
 
     /**
