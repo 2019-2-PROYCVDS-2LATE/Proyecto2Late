@@ -10,6 +10,7 @@ import edu.eci.cvds.persistencia.PersistenceException;
 import edu.eci.cvds.persistencia.RecursoDAO;
 import edu.eci.cvds.persistencia.UsuarioDAO;
 import edu.eci.cvds.samples.entities.Recurso;
+import edu.eci.cvds.samples.entities.Prestamo;
 import edu.eci.cvds.samples.services.ServiciosBiblioteca;
 import edu.eci.cvds.samples.services.ServiciosBibliotecaException;
 import java.util.List;
@@ -24,6 +25,12 @@ public class ServiciosBibliotecaImpl implements ServiciosBiblioteca{
     @Inject
     private UsuarioDAO UsuarioDAO;
 
+
+    @Override
+    public void registrarPrestamo(Prestamo prestamo) throws ServiciosBibliotecaException{
+
+        //Falta implementar esto panas jaja
+    }
     @Override
     public void registrarRecurso(Recurso cli) throws ServiciosBibliotecaException {
         try {
