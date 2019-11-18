@@ -5,38 +5,51 @@
  */
 package edu.eci.cvds.samples.services;
 
+import edu.eci.cvds.samples.entities.Prestamo;
 import edu.eci.cvds.samples.entities.Usuario;
 import edu.eci.cvds.samples.entities.Recurso;
 import java.util.Date;
 import java.util.List;
 /**
  *
- * @author 2152972
+ * @author 2LateTeam
  */
 public interface ServiciosBiblioteca {
     /**
      * Registra un recurso
      * @throws ServiciosBibliotecaException 
      */
-    void registrarRecurso(Recurso rec) throws ServiciosBibliotecaException;
+    public void registrarRecurso(Recurso rec) throws ServiciosBibliotecaException;
     
     /**
      * Modifica los valores de un recurso
      * @throws ServiciosBibliotecaException 
      */
-    void modificarRecurso(String id, String est) throws ServiciosBibliotecaException;
+    public void modificarRecurso(String id, String est) throws ServiciosBibliotecaException;
     
     /**
      * Consulta un recurso
      * @return el recurso a consultar
      * @throws ServiciosBibliotecaException 
      */
-    Recurso consultarRecurso(int id) throws ServiciosBibliotecaException;
+    public Recurso consultarRecurso(int id) throws ServiciosBibliotecaException;
 
     /**
      * Consulta todos los recursos
      * @return una lista con todos los recursos
      * @throws ServiciosBibliotecaException 
      */
-    List<Recurso> consultarRecursos() throws ServiciosBibliotecaException;
+    public List<Recurso> consultarRecursos() throws ServiciosBibliotecaException;
+
+    /**
+     * Registrar un prestamo
+     * @throws ServiciosBibliotecaException
+     *
+     */
+    public void registrarPrestamo(Prestamo prestamo) throws ServiciosBibliotecaException;
+
+    /**
+     * Consultar un prestamo
+     * @return el prestamo a consultar
+     */
 }
