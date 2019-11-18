@@ -145,8 +145,10 @@ iframe {
 .limiter {
   width: 100%;
   margin: 0 auto;
-
+  opacity: 1;
 }
+
+
 
 .container-login100 {
   width: 100%;  
@@ -179,7 +181,7 @@ iframe {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.3);
+
 
 }
 
@@ -187,7 +189,7 @@ iframe {
   width: 390px;
   border-radius: 10px;
   overflow: hidden;
-
+  opacity: 0;
   background: transparent;
 }
 
@@ -199,7 +201,7 @@ iframe {
   width: 100%;
   border-radius: 10px;
 
-  background:rgba(255,255,255,0.3);
+  background:rgba(255,255,255,0);
 
 }
 
@@ -476,7 +478,7 @@ iframe {
 @media (max-width: 992px) {
   .alert-validate::before {
     visibility: visible;
-    opacity: 1;
+    opacity: 0;
   }
 }
 

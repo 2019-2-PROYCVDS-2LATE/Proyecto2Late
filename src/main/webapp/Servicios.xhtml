@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Consulta Recurso </title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="css/util.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="shortcut icon" href="img/icons/icono.ico" />
+</h:head>
+<h:body style="overflow-x:hidden; overflow-y:scroll">
+    <!--nav-->
+    <nav class="nav navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="col-md-12">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="fa fa-bars"></span>
+                    </button>
+                    <a href="#" class="navbar-brand">2Late</a>
+                </div>
+                <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Reservar</a></li>
+                        <li><a href="Principal.html">Cerrar Sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="limiter">
+    <div class="container-login100" style="background-image: url('img/banner2.jpg');">
+        <div class="container">
+            <center>
+                <h:form id="form">
+
+                        <p:fieldset legend="Recursos" toggleable = "True" toggleSpeed = "500">
+                            <p:dataTable id="recursosTable" value="#{recursoBean.recursosList}" var="rec" widgetVar="recTable"
+                                         rows="10" paginator="true" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                                         sortMode="multiple" paginatorPosition="bottom">
+                                <p:column style="column-width: 50em;" headerText="Id" sortBy="#{rec.identificadorInterno}">
+                                    <h:outputText value="#{rec.identificadorInterno}"/>
+                                </p:column>
+                                <p:column headerText="Tipo" sortBy="#{rec.tipo}" filterMatchMode="exact" filterBy="#{rec.tipo}">
+                                    <f:facet name="filter">
+                                        <p:selectOneMenu onchange="PF('recTable').filter()" styleClass="custom-filter">
+                                            <f:selectItem itemLabel="Seleccionar" itemValue="#{null}" noSelectionOption="true" />
+                                            <f:selectItems value="#{recursoBean.recursoTipos()}"/>
+                                        </p:selectOneMenu>
+                                    </f:facet>
+                                    <h:outputText value="#{rec.tipo}"/>
+                                </p:column>
+                                <p:column headerText="Nombre" sortBy="#{rec.nombre}">
+                                    <h:outputText value="#{rec.nombre}"/>
+                                </p:column>
+                                <p:column headerText="Ubicacion" sortBy="#{rec.ubicacion}" filterBy="#{rec.ubicacion}" filterMatchMode="exact">
+                                    <h:outputText value="#{rec.ubicacion}"/>
+                                </p:column>
+                                <p:column headerText="Capacidad" sortBy="#{rec.capacidad}" filterBy="#{rec.capacidad}" filterMatchMode="exact">
+                                    <h:outputText value="#{rec.capacidad}"/>
+                                </p:column>
+
+                                <p:column headerText="estado" sortBy="#{rec.estado}">
+                                    <h:outputText value="#{rec.estado}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </p:fieldset>
+
+
+                </h:form>
+            </center>
+        </div>
+    </div>
+    </div>
+
+
+
+
+</h:body>
+</html>

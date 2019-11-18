@@ -37,12 +37,11 @@ public class ShiroLoginBean implements Serializable {
      */
     public void doLogin() {
         Subject currentUser  = SecurityUtils.getSubject();
-
         UsernamePasswordToken token = new UsernamePasswordToken(getEmail(), new Sha256Hash(getPassword()).toHex(), getRememberMe());
         try {
             currentUser.login(token);
             currentUser.getSession().setAttribute("correo",email);
-            FacesContext.getCurrentInstance().getExternalContext().redirect("admin/index.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("Servicios.xhtml");
         }
         catch (UnknownAccountException ex) {
             facesError("Unknown account");

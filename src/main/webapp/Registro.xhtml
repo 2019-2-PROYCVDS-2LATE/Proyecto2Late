@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Registro</title>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="img/icons/house.ico"/>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css"/>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css"/>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css"/>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css"/>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css"/>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css"/>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css"/>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css"/>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link rel="shortcut icon" href="img/icons/icono.ico" />
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'/>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<!--===============================================================================================-->
+</h:head>
+<h:body>
+	<nav class="nav navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="col-md-12">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="fa fa-bars"></span>
+                        </button>
+              <a href="Principal.html" class="navbar-brand">2Late</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="Principal.html">Inicio</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('img/banner3.jpg');">
+			<div class="wrap-login100 p-t-30 p-b-50">
+                    <span class="login100-form-title p-b-41">
+						Registro
+                    </span>
+				<h:form id = "form" >
+					<!--p:panel-->
+
+					<p:growl id="growl"  for="shiro" showDetail="true" sticky="true"  />
+					<div id="Cuadro_nombre" >
+						<br><p:inputText  class="input100" id="nombre" placeholder="&#xe80f; Nombre"  > </p:inputText></br>
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+					</div>
+					<div id="Cuadro_email" >
+						<br><p:inputText  class="input100" id="correo" placeholder="&#xe80f; Usuario-Correo"  > </p:inputText></br>
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+					</div>
+					<div id="Cuadro_pass" >
+						<br><p:inputText  class="input100" id="contrasena" placeholder="&#xe80f; Contraseña" type="password"  > </p:inputText></br>
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-32">
+						<p:commandButton  class="login100-form-btn"  value="Registrarme"  update="@form" />
+					</div>
+
+					<!--/p:panel-->
+				</h:form>
+			</div>
+		</div>
+	</div>
+
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	<script src="js/jquery.min.js"></script>
+  	<script src="js/jquery.easing.min.js"></script>
+  	<script src="js/bootstrap.min.js"></script>
+  	<script src="js/wow.js"></script>
+  	<script src="js/custom.js"></script>
+  	<script src="contactform/contactform.js"></script>
+
+</h:body>
+</html>
