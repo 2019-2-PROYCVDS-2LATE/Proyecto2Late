@@ -19,7 +19,7 @@ public class ServiciosBibliotecaFactory {
     private static ServiciosBibliotecaFactory instance = new ServiciosBibliotecaFactory();
 
     private static Injector injector;
-	
+
     private static Injector testingInjector;
 
     private ServiciosBibliotecaFactory() {
@@ -28,11 +28,12 @@ public class ServiciosBibliotecaFactory {
 
             @Override
             protected void initialize() {
-                install(JdbcHelper.PostgreSQL);
-                setClassPathResource("mybatis-config.xml");
-                bind(ServiciosBiblioteca.class).to(ServiciosBibliotecaImpl.class);
-                bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
-                bind(RecursoDAO.class).to(MyBatisRecursoDAO.class);
+              install(JdbcHelper.PostgreSQL);
+              setClassPathResource("mybatis-config.xml");
+              bind(ServiciosBiblioteca.class).to(ServiciosBibliotecaImpl.class);
+              bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
+              bind(RecursoDAO.class).to(MyBatisRecursoDAO.class);
+              bind(PrestamoDAO.class).to(MyBatisPrestamoDAO.class);
             }
         }
         );
@@ -40,16 +41,16 @@ public class ServiciosBibliotecaFactory {
         testingInjector = createInjector(new XMLMyBatisModule() {
             @Override
             protected void initialize() {
-                install(JdbcHelper.PostgreSQL);
-                setClassPathResource("mybatis-config-h2.xml");
-                bind(ServiciosBiblioteca.class).to(ServiciosBibliotecaImpl.class);
-                bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
-                bind(RecursoDAO.class).to(MyBatisRecursoDAO.class);
-                bind(PrestamoDAO.class).to(MyBatisPrestamoDAO.class);
+             install(JdbcHelper.PostgreSQL);
+             setClassPathResource("mybatis-config-h2.xml");
+             bind(ServiciosBiblioteca.class).to(ServiciosBibliotecaImpl.class);
+             bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
+             bind(RecursoDAO.class).to(MyBatisRecursoDAO.class);
+             bind(PrestamoDAO.class).to(MyBatisPrestamoDAO.class);
             }
         }
         );
-		
+
     }
 
     public ServiciosBiblioteca getServiciosBiblioteca(){

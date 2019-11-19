@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 package edu.eci.cvds.samples.entities;
+import java.io.Serializable;
 import java.util.Date;
 /**
  *
  * @author 2lateTeam
  */
-public class Prestamo {
+public class Prestamo implements Serializable {
     private String correoUsuario;
     private int IdRecurso;
     private int horaInicio;

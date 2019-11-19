@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.eci.cvds.persistencia.mybatisimpl.mappers.PrestamoMapper">
+
+    <insert parameterType="map" id="registrarPrestamo" >
+        INSERT INTO prestamo (correousuario, idrecurso, horainicio, fechainicio, duracion)
+            VALUES (#{pres.correoUsuario},#{pres.idRecurso},#{pres.horaInicio},#{pres.fechaInicio},#{pres.duracion})
+    </insert>
+
+
+    <resultMap type='Prestamo' id='PrestamoResult'>
+        <id property='idPrestamo' column='idprestamo'/>
+        <result property='correoUsuario' column='correousuario'/>
+        <result property='IdRecurso' column='idrecurso'/>
+        <result property='horaInicio' column='horainicio'/>
+        <result property='fechaInicio' column='fechainicio'/>
+        <result property='duracion' column='duracion'/>
+    </resultMap>
+
+
+    <select parameterType='map' id='consultarPrestamos' resultMap='PrestamoResult'>
+    SELECT
+      idprestamo,
+      correoUsuario,
+      idrecurso,
+      fechainicio,
+      horainicio,
+      duracion
+
+     FROM
+      prestamo;
+  </select>
+
+    <update id='modificarDuracionPrestamo' >
+      UPDATE prestamo
+      SET duracion = #{dur}
+      WHERE id = #{id}
+  </update>
+</mapper>

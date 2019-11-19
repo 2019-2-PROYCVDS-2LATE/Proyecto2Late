@@ -12,6 +12,7 @@
     <typeAliases>
         <typeAlias type="edu.eci.cvds.samples.entities.Recurso" alias="Recurso"/>
         <typeAlias type="edu.eci.cvds.samples.entities.Usuario" alias="Usuario"/>
+        <typeAlias type="edu.eci.cvds.samples.entities.Prestamo" alias="Prestamo"/>
     </typeAliases>	
 
 
@@ -32,6 +33,7 @@
     <mappers> 
         <mapper resource="mappers/RecursoMapper.xml"></mapper>
         <mapper resource="mappers/UsuarioMapper.xml"></mapper>
+        <mapper resource="mappers/ReservaMapper.xml"></mapper>
     </mappers>
    
 </configuration> 

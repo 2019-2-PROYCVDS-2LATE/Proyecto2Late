@@ -18,14 +18,14 @@ import java.util.Date;
  * @author 2LateTeam
  */
 public interface PrestamoMapper {
-    public void registrarPrestamo(@Param("prestamo") Prestamo prestamo);
-    
+    public void registrarPrestamo(@Param("pres") Prestamo pres);
+
     public Prestamo consultarPrestamo(@Param("id") int id);
-    
-    public void modificarDuracionPrestamo(@Param("id") int id, @Param("duracion") String duracion);
-    
-    public void modificarFechaPrestamo(@Param("id") int id, @Param("fecha") Date date);
-    
+
+    public void modificarDuracionPrestamo(@Param("id") int id, @Param("dur") String dur);
+
+    public void modificarFechaPrestamo(@Param("id") int id, @Param("date") String date);
+
     public List<Prestamo> consultarPrestamos();
 
 }

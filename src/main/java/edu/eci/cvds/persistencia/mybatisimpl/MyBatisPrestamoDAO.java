@@ -45,13 +45,13 @@ public class MyBatisPrestamoDAO implements PrestamoDAO {
     }
 
     @Override
-    public void modificarFechaPrestamo(int id, Date date) throws PersistenceException {
+    public void modificarFechaPrestamo(int id, String date) throws PersistenceException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public List<Prestamo> consultarPrestamos() throws PersistenceException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return prestamoMapper.consultarPrestamos();
     }
     
     
