@@ -7,6 +7,7 @@ package edu.eci.cvds.samples.services.impl;
 
 import com.google.inject.Inject;
 import edu.eci.cvds.persistencia.PersistenceException;
+import edu.eci.cvds.persistencia.PrestamoDAO;
 import edu.eci.cvds.persistencia.RecursoDAO;
 import edu.eci.cvds.persistencia.UsuarioDAO;
 import edu.eci.cvds.samples.entities.Recurso;
@@ -24,13 +25,9 @@ public class ServiciosBibliotecaImpl implements ServiciosBiblioteca{
     private RecursoDAO recursoDAO;
     @Inject
     private UsuarioDAO UsuarioDAO;
+    @Inject
+    private PrestamoDAO prestamoDAO;
 
-
-    @Override
-    public void registrarPrestamo(Prestamo prestamo) throws ServiciosBibliotecaException{
-
-        //Falta implementar esto panas jaja
-    }
     @Override
     public void registrarRecurso(Recurso cli) throws ServiciosBibliotecaException {
         try {
@@ -74,5 +71,24 @@ public class ServiciosBibliotecaImpl implements ServiciosBiblioteca{
         }
         return ans;
     }
+    @Override
+    public void registrarPrestamo(Prestamo pres) throws ServiciosBibliotecaException{
+        try {
+            prestamoDAO.registrarPrestamo(pres);
 
+        } catch (PersistenceException e) {
+            throw new ServiciosBibliotecaException("Error al registrar la reserva " + pres.toString(), e);
+        }
+    }
+
+    @Override
+    public List<Prestamo> consultarPrestamos() throws ServiciosBibliotecaException {
+        List<Prestamo> ans= null;
+        try {
+            ans = prestamoDAO.consultarPrestamos();
+        } catch (PersistenceException e) {
+            throw new ServiciosBibliotecaException("Error al consultar los recursos", e);
+        }
+        return ans;
+    }
 }

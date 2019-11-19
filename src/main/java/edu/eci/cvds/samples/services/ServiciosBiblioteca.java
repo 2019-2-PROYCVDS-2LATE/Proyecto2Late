@@ -49,7 +49,9 @@ public interface ServiciosBiblioteca {
     public void registrarPrestamo(Prestamo prestamo) throws ServiciosBibliotecaException;
 
     /**
-     * Consultar un prestamo
-     * @return el prestamo a consultar
+     * Consulta un prestamos
+     * @return los prestamos realizados
+     * @throws ServiciosBibliotecaException
      */
+    List<Prestamo> consultarPrestamos() throws ServiciosBibliotecaException;
 }

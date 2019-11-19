@@ -11,80 +11,82 @@ import java.util.Date;
  */
 public class Prestamo {
     private String correoUsuario;
-    private String IdRecurso;
-    private Date horaInicio; //fecha en la cual se va a prestar el recurso
-    private int duracion; //duracion en horas 
-    
-    public Prestamo(String correoUsuario, String IdRecurso, Date horaInicio){
+    private int IdRecurso;
+    private int horaInicio;
+    private String fechaInicio;//fecha en la cual se va a prestar el recurso
+    private int duracion; //duracion en horas
+    private int idPrestamo;
+
+    public Prestamo(String correoUsuario, int IdRecurso, String fechaInico, int horaInicio){
         this.setCorreoUsuario(correoUsuario);
         this.setIdRecurso(IdRecurso);
         this.setHoraInicio(horaInicio);
+        this.setFechaInicio(fechaInico);
     }
-    
-    public Prestamo(String correoUsuario, String IdRecurso, Date horaInicio, int duracion){
+
+    public Prestamo(String correoUsuario, int IdRecurso,String fechaInico, int horaInicio, int duracion){
         this.setCorreoUsuario(correoUsuario);
         this.setIdRecurso(IdRecurso);
         this.setHoraInicio(horaInicio);
+        this.setFechaInicio(fechaInico);
         this.setDuracion(duracion);
     }
 
-    /**
-     * @return the correoUsuario
-     */
+    public Prestamo(int idPrestamo, String correoUsuario, int IdRecurso,String fechaInico, int horaInicio, int duracion){
+        this.setCorreoUsuario(correoUsuario);
+        this.setIdRecurso(IdRecurso);
+        this.setHoraInicio(horaInicio);
+        this.setFechaInicio(fechaInico);
+        this.setDuracion(duracion);
+        this.setIdPrestamo(idPrestamo);
+    }
+
+
     public String getCorreoUsuario() {
         return correoUsuario;
     }
 
-    /**
-     * @param correoUsuario the correoUsuario to set
-     */
     public void setCorreoUsuario(String correoUsuario) {
         this.correoUsuario = correoUsuario;
     }
 
-    /**
-     * @return the IdRecurso
-     */
-    public String getIdRecurso() {
+    public int getIdRecurso() {
         return IdRecurso;
     }
 
-    /**
-     * @param IdRecurso the IdRecurso to set
-     */
-    public void setIdRecurso(String IdRecurso) {
-        this.IdRecurso = IdRecurso;
+    public void setIdRecurso(int idRecurso) {
+        IdRecurso = idRecurso;
     }
 
-    /**
-     * @return the horaInicio
-     */
-    public Date getHoraInicio() {
+    public int getHoraInicio() {
         return horaInicio;
     }
 
-    /**
-     * @param horaInicio the horaInicio to set
-     */
-    public void setHoraInicio(Date horaInicio) {
+    public void setHoraInicio(int horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    /**
-     * @return the duracion
-     */
+    public String getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(String fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
     public int getDuracion() {
         return duracion;
     }
 
-    /**
-     * @param duracion the duracion to set
-     */
     public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
-    
-    
-    
-    
+
+    public int getIdPrestamo() {
+        return idPrestamo;
+    }
+
+    public void setIdPrestamo(int idPrestamo) {
+        this.idPrestamo = idPrestamo;
+    }
 }

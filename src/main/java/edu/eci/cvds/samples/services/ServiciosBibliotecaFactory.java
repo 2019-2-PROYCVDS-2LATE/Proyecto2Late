@@ -3,8 +3,10 @@ package edu.eci.cvds.samples.services;
 import static com.google.inject.Guice.createInjector;
 
 import com.google.inject.Injector;
+import edu.eci.cvds.persistencia.PrestamoDAO;
 import edu.eci.cvds.persistencia.RecursoDAO;
 import edu.eci.cvds.persistencia.UsuarioDAO;
+import edu.eci.cvds.persistencia.mybatisimpl.MyBatisPrestamoDAO;
 import edu.eci.cvds.persistencia.mybatisimpl.MyBatisRecursoDAO;
 import edu.eci.cvds.persistencia.mybatisimpl.MyBatisUsuarioDAO;
 
@@ -43,6 +45,7 @@ public class ServiciosBibliotecaFactory {
                 bind(ServiciosBiblioteca.class).to(ServiciosBibliotecaImpl.class);
                 bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
                 bind(RecursoDAO.class).to(MyBatisRecursoDAO.class);
+                bind(PrestamoDAO.class).to(MyBatisPrestamoDAO.class);
             }
         }
         );
