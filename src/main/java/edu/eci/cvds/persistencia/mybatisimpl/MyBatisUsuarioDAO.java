@@ -30,4 +30,9 @@ public class MyBatisUsuarioDAO implements UsuarioDAO{
     public void save(Usuario b) throws PersistenceException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public Usuario consualtarUsuario(String correo) throws PersistenceException {
+        return usuarioMapper.consultarUsuario(correo);
+    }
 }

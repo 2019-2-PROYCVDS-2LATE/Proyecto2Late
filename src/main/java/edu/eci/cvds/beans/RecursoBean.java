@@ -14,7 +14,11 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
 import java.util.List;
-
+/**
+ *
+ * @author 2LateTeam
+ *
+ */
 @ManagedBean(name = "recursoBean")
 @ViewScoped
 public class RecursoBean implements Serializable {
@@ -30,6 +34,10 @@ public class RecursoBean implements Serializable {
     private String estado;
     private List<Recurso> recursosList;
 
+    public RecursoBean(){
+
+        serviciosBiblioteca = ServiciosBibliotecaFactory.getInstance().getServiciosBiblioteca();
+    }
     public List<Recurso> getRecursosList() {
         recursosList = consultarRecursos();
         return recursosList;
@@ -40,9 +48,6 @@ public class RecursoBean implements Serializable {
     }
 
 
-    public RecursoBean(){
-        serviciosBiblioteca = ServiciosBibliotecaFactory.getInstance().getServiciosBiblioteca();
-    }
 
     public int getCapacidad() {
         return capacidad;

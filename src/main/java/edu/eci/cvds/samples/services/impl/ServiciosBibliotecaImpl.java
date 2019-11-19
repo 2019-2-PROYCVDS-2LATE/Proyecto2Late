@@ -12,13 +12,13 @@ import edu.eci.cvds.persistencia.RecursoDAO;
 import edu.eci.cvds.persistencia.UsuarioDAO;
 import edu.eci.cvds.samples.entities.Recurso;
 import edu.eci.cvds.samples.entities.Prestamo;
+import edu.eci.cvds.samples.entities.Usuario;
 import edu.eci.cvds.samples.services.ServiciosBiblioteca;
 import edu.eci.cvds.samples.services.ServiciosBibliotecaException;
 import java.util.List;
-
 /**
  *
- * @author Carlos Murillo
+ * @author 2LateTeam
  */
 public class ServiciosBibliotecaImpl implements ServiciosBiblioteca{
     @Inject
@@ -102,5 +102,14 @@ public class ServiciosBibliotecaImpl implements ServiciosBiblioteca{
             throw new ServiciosBibliotecaException("Error al consultar las reservas del usuario.");
         }
         return prestamosUsuario;
+    }
+
+    @Override
+    public void registrarUsuario(Usuario usuario) throws ServiciosBibliotecaException {
+        try{
+            UsuarioDAO.save(usuario);
+        } catch (PersistenceException e) {
+            throw new ServiciosBibliotecaException("Error al registrar el usuario " + usuario.toString(), e);
+        }
     }
 }

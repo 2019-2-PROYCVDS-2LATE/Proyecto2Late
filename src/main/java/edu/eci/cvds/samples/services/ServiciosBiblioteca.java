@@ -61,4 +61,11 @@ public interface ServiciosBiblioteca {
      * @throws ServiciosBibliotecaException
      */
     public List<Prestamo> consultarPrestamosUsuario(String correoUsuario) throws ServiciosBibliotecaException;
+
+    /**
+     *
+     * @param usuario
+     * @throws ServiciosBibliotecaException
+     */
+    public void registrarUsuario(Usuario usuario) throws ServiciosBibliotecaException;
 }

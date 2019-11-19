@@ -17,6 +17,9 @@ import edu.eci.cvds.samples.entities.Usuario;
 public interface UsuarioMapper {
 	
     public Usuario consultarUsuario(@Param("correo") String correo);
-    
+
+    public void save(@Param("usuario") Usuario usuario);
+
+    public List<Usuario> loadAll();
 
 }

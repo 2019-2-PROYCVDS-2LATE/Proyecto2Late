@@ -6,7 +6,11 @@
 package edu.eci.cvds.samples.entities;
 
 import java.io.Serializable;
-
+/**
+ *
+ * @author 2LateTeam
+ *
+ */
 public class Usuario implements Serializable{
 
 	private String correo;
