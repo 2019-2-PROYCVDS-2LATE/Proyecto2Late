@@ -17,11 +17,11 @@ import java.util.List;
 import edu.eci.cvds.samples.services.ServiciosBiblioteca;
 import edu.eci.cvds.samples.services.ServiciosBibliotecaException;
 import edu.eci.cvds.samples.services.ServiciosBibliotecaFactory;
+
 /**
  *
  * @author 2LateTeam
  */
-
 @ManagedBean(name = "prestamoBean")
 @ViewScoped
 public class PrestamoBean implements Serializable {
@@ -39,7 +39,7 @@ public class PrestamoBean implements Serializable {
 
     public void registrarPrestamo() {
         try {
-            System.out.println(correoUsuario + " " + idRecurso + " " + horaInicio + " " +fechaInicio+" "+duracion);
+            //System.out.println(correoUsuario + " " + idRecurso + " " + horaInicio + " " +fechaInicio+" "+duracion);
             Prestamo prestamo = new Prestamo(getCorreoUsuario(), getIdRecurso(), getFechaInicio(), getHoraInicio(), getDuracion());
             getServiciosBiblioteca().registrarPrestamo(prestamo);
             facesError("Registro Exitoso!");

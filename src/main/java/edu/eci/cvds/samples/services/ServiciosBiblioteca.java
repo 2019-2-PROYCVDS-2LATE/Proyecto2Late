@@ -53,5 +53,12 @@ public interface ServiciosBiblioteca {
      * @return los prestamos realizados
      * @throws ServiciosBibliotecaException
      */
-    List<Prestamo> consultarPrestamos() throws ServiciosBibliotecaException;
+    public List<Prestamo> consultarPrestamos() throws ServiciosBibliotecaException;
+
+    /**
+     * Consultar todos las reservas relaizadas por  el usuario logueado
+     * @return los prestamos realizados por el usuario
+     * @throws ServiciosBibliotecaException
+     */
+    public List<Prestamo> consultarPrestamosUsuarios(String correoUsuario) throws ServiciosBibliotecaException;
 }

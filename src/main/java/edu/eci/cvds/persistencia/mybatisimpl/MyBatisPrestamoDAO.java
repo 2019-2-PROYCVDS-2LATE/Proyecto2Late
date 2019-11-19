@@ -31,12 +31,18 @@ public class MyBatisPrestamoDAO implements PrestamoDAO {
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
             System.out.println(e.getMessage());
-            throw new PersistenceException("La reserva ya existe",e);
+            throw new PersistenceException("No es posible realizar la reserva.",e);
         }
     }
     @Override
     public Prestamo consultarPrestamo( int id) throws PersistenceException{
-        throw new UnsupportedOperationException("Not supported yet.");
+        try{
+            return prestamoMapper.consultarPrestamo(id);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e ){
+            System.out.println(e.getMessage());
+            throw new PersistenceException("La reserva no existe.");
+        }
     }
 
     @Override
@@ -53,6 +59,9 @@ public class MyBatisPrestamoDAO implements PrestamoDAO {
     public List<Prestamo> consultarPrestamos() throws PersistenceException {
         return prestamoMapper.consultarPrestamos();
     }
-    
-    
+
+    @Override
+    public List<Prestamo> consultarPrestamosUsuario(String correoUsuario) throws PersistenceException {
+        return prestamoMapper.consultarPrestamosUsuario(correoUsuario);
+    }
 }

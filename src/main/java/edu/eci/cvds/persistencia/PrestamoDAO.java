@@ -16,11 +16,14 @@ public interface PrestamoDAO {
     public void registrarPrestamo( Prestamo prestamo) throws PersistenceException;
     
     public Prestamo consultarPrestamo( int id) throws PersistenceException;
-    
+
+    public List<Prestamo> consultarPrestamoUsuario(String correoUsuario)throws  PersistenceException;
+
     public void modificarDuracionPrestamo( int id, String duracion) throws PersistenceException;
     
     public void modificarFechaPrestamo( int id,  String date) throws PersistenceException;
     
     public List<Prestamo> consultarPrestamos() throws PersistenceException;
-    
+
+    public List<Prestamo> consultarPrestamosUsuario(String correoUsuario) throws PersistenceException;
 }

@@ -87,8 +87,19 @@ public class ServiciosBibliotecaImpl implements ServiciosBiblioteca{
         try {
             ans = prestamoDAO.consultarPrestamos();
         } catch (PersistenceException e) {
-            throw new ServiciosBibliotecaException("Error al consultar los recursos", e);
+            throw new ServiciosBibliotecaException("Error al consultar las reservas.", e);
         }
         return ans;
+    }
+
+    @Override
+    public List<Prestamo> consultarPrestamosUsuario(String correoUsuario) throws ServiciosBibliotecaException {
+        List<Prestamo> prestamosUsuario = null;
+        try{
+            prestamosUsuario =  prestamoDAO.consultarPrestamosUsuario(correoUsuario);
+        }
+        catch (PersistenceException e){
+            throw new ServiciosBibliotecaException("Error al consultar las reservas del usuario.");
+        }
     }
 }
