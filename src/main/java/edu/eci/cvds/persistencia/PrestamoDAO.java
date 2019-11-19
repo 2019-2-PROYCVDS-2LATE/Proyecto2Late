@@ -13,11 +13,10 @@ import edu.eci.cvds.samples.entities.Prestamo;
  * @author 2LateTeam
  */
 public interface PrestamoDAO {
+
     public void registrarPrestamo( Prestamo prestamo) throws PersistenceException;
     
     public Prestamo consultarPrestamo( int id) throws PersistenceException;
-
-    public List<Prestamo> consultarPrestamoUsuario(String correoUsuario)throws  PersistenceException;
 
     public void modificarDuracionPrestamo( int id, String duracion) throws PersistenceException;
     

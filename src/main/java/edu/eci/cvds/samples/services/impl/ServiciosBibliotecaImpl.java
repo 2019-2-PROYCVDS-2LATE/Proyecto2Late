@@ -101,5 +101,6 @@ public class ServiciosBibliotecaImpl implements ServiciosBiblioteca{
         catch (PersistenceException e){
             throw new ServiciosBibliotecaException("Error al consultar las reservas del usuario.");
         }
+        return prestamosUsuario;
     }
 }

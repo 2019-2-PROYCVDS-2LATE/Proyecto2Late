@@ -60,5 +60,5 @@ public interface ServiciosBiblioteca {
      * @return los prestamos realizados por el usuario
      * @throws ServiciosBibliotecaException
      */
-    public List<Prestamo> consultarPrestamosUsuarios(String correoUsuario) throws ServiciosBibliotecaException;
+    public List<Prestamo> consultarPrestamosUsuario(String correoUsuario) throws ServiciosBibliotecaException;
 }

@@ -50,8 +50,11 @@ public class PrestamoBean implements Serializable {
     public boolean verificarPrestamo(Prestamo prestamo){
         try {
             List<Prestamo> aux = getServiciosBiblioteca().consultarPrestamos();
+
             for(int i=0;i<aux.size();i++){
-                if(aux.get(i).getIdRecurso() == prestamo.getIdRecurso() && aux.get(i).getFechaInicio().equals(prestamo.getFechaInicio()) && aux.get(i).getHoraInicio()==prestamo.getHoraInicio()){
+                if(aux.get(i).getIdRecurso() == prestamo.getIdRecurso() &&
+                        aux.get(i).getFechaInicio().equals(prestamo.getFechaInicio()) &&
+                        aux.get(i).getHoraInicio()==prestamo.getHoraInicio()){
                     return false;
                 }
             }

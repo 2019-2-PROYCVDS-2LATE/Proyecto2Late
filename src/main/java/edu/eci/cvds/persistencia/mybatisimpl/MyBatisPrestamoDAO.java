@@ -20,7 +20,7 @@ import edu.eci.cvds.samples.entities.Prestamo;
  *
  * @author 2LateTeam
  */
-public class MyBatisPrestamoDAO implements PrestamoDAO {
+public class MyBatisPrestamoDAO implements PrestamoDAO{
     @Inject
     PrestamoMapper prestamoMapper;
     
