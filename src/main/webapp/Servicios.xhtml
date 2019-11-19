@@ -75,28 +75,31 @@
     </div>
     </div>
 
-<p:dialog header = "Reserva recurso" widgetVar = "reserva" modal = "true" height = "200">
-    <h:panelGrid columns = "2" cellpadding = "5" cellspacing = "150">
-        <h:outputText value="Verifique su correo:" />
-        <p:inputText id="marca2" value="#{prestamoBean.correoUsuario}" required="true"/>
+<p:dialog header = "Reserva recurso" widgetVar = "reserva" height = "200">
+    <h:form>
+        <h:panelGrid columns = "2" cellpadding = "5" cellspacing = "150">
+            <h:outputText value="Verifique su correo:" />
+            <p:inputText id="marca2" value="#{prestamoBean.correoUsuario}" required="true"></p:inputText>
 
-        <h:outputText value="Id Recurso:" />
-        <p:inputText id="marca3" value="#{prestamoBean.idRecurso}" required="true"/>
+            <h:outputText value="Id Recurso:" />
+            <p:inputText id="marca3" value="#{prestamoBean.idRecurso}" required="true"></p:inputText>
 
-        <h:outputText value="Hora Inicio:" />
-        <p:inputText id="marca4" value="#{prestamoBean.horaInicio}" required="true"/>
+            <h:outputText value="Hora Inicio:" />
+            <p:inputText id="marca4" value="#{prestamoBean.horaInicio}" required="true"></p:inputText>
 
-        <h:outputText value="Fecha Inicio:" />
-        <p:inputText id="marca5" value="#{prestamoBean.fechaInicio}" required="true"/>
+            <h:outputText value="Fecha Inicio:" />
+            <p:inputText id="marca5" value="#{prestamoBean.fechaInicio}" required="true"></p:inputText>
 
-        <h:outputText value="Duracion:" />
-        <p:inputText id="marca6" value="#{prestamoBean.duracion}" required="true"/>
+            <h:outputText value="Duracion:" />
+            <p:inputText id="marca6" value="#{prestamoBean.duracion}" required="true"></p:inputText>
 
+        </h:panelGrid>
 
-    </h:panelGrid>
     <div align="center">
         <p:commandButton align = "center"  value="Reservar" action="#{prestamoBean.registrarPrestamo}"  />
     </div>
+    </h:form>
+
 
 </p:dialog>
 

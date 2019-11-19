@@ -26,16 +26,13 @@
                 </div>
                 <div class="collapse navbar-collapse navbar-right" id="mynavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Añadir Recurso</a></li>
+                        <li><a onclick="PF('reserva').show();">Reservar</a></li>
                         <li><a href="Principal.html">Cerrar Sesión</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
-
-
-
     <div class="limiter">
         <div class="container-login100" style="background-image: url('img/banner5.jpg');">
             <div class="container">
@@ -112,6 +109,33 @@
         </div>
     </div>
 
+<p:dialog header = "Reserva recurso" widgetVar = "reserva" height = "200">
+    <h:form>
+        <h:panelGrid columns = "2" cellpadding = "5" cellspacing = "150">
+            <h:outputText value="Verifique su correo:" />
+            <p:inputText id="marca2" value="#{prestamoBean.correoUsuario}" required="true"></p:inputText>
+
+            <h:outputText value="Id Recurso:" />
+            <p:inputText id="marca3" value="#{prestamoBean.idRecurso}" required="true"></p:inputText>
+
+            <h:outputText value="Hora Inicio:" />
+            <p:inputText id="marca4" value="#{prestamoBean.horaInicio}" required="true"></p:inputText>
+
+            <h:outputText value="Fecha Inicio:" />
+            <p:inputText id="marca5" value="#{prestamoBean.fechaInicio}" required="true"></p:inputText>
+
+            <h:outputText value="Duracion:" />
+            <p:inputText id="marca6" value="#{prestamoBean.duracion}" required="true"></p:inputText>
+
+        </h:panelGrid>
+
+        <div align="center">
+            <p:commandButton align = "center"  value="Reservar" action="#{prestamoBean.registrarPrestamo}"  />
+        </div>
+    </h:form>
+
+
+</p:dialog>
 
 
 

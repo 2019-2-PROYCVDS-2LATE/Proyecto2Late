@@ -39,6 +39,7 @@ public class PrestamoBean implements Serializable {
 
     public void registrarPrestamo() {
         try {
+            System.out.println(correoUsuario + " " + idRecurso + " " + horaInicio + " " +fechaInicio+" "+duracion);
             Prestamo prestamo = new Prestamo(getCorreoUsuario(), getIdRecurso(), getFechaInicio(), getHoraInicio(), getDuracion());
             getServiciosBiblioteca().registrarPrestamo(prestamo);
             facesError("Registro Exitoso!");
