@@ -47,24 +47,35 @@ public class PrestamoBean implements Serializable {
             facesError(e.getMessage());
         }
     }
-    public boolean verificarPrestamo(Prestamo prestamo){
-        try {
-            List<Prestamo> aux = getServiciosBiblioteca().consultarPrestamos();
 
-            for(int i=0;i<aux.size();i++){
-                if(aux.get(i).getIdRecurso() == prestamo.getIdRecurso() &&
-                        aux.get(i).getFechaInicio().equals(prestamo.getFechaInicio()) &&
-                        aux.get(i).getHoraInicio()==prestamo.getHoraInicio()){
+    /**
+     * El recurso debe estar disponible en la hora que se desea reservar
+     *
+     * @param prestamo
+     * @return si es posible reservar el recurso
+     */
+    public boolean verificarPrestamo(Prestamo prestamo){
+        try{
+            List<Prestamo> prestamosGuardados = getServiciosBiblioteca().consultarPrestamos();
+            for(Prestamo p: prestamosGuardados){
+                if(p.getIdRecurso() == prestamo.getIdRecurso() &&
+                        p.getFechaInicio().equals(prestamo.getFechaInicio()) &&
+                        p.getHoraInicio()==prestamo.getHoraInicio() &&
+                        (p.getDuracion()+p.getHoraInicio())<=prestamo.getHoraInicio()
+
+                ){
                     return false;
                 }
             }
             return true;
-
-        }catch (ServiciosBibliotecaException e) {
+        }
+        catch (ServiciosBibliotecaException e){
             facesError(e.getMessage());
         }
         return true;
     }
+
+
 
     /**
      * Adds a new SEVERITY_ERROR FacesMessage for the ui
