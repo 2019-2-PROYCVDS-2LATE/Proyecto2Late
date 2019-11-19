@@ -26,7 +26,7 @@
                 </div>
                 <div class="collapse navbar-collapse navbar-right" id="mynavbar">
                     <ul class="nav navbar-nav">
-                        <li><a onclick="PF('reserva').show();">Reservar</a></li>
+                        <li><a onclick="PF('reserva').show();">Añadir Recurso</a></li>
                         <li><a href="/logout">Cerrar Sesión</a></li>
                     </ul>
                 </div>
@@ -37,26 +37,14 @@
         <div class="container-login100" style="background-image: url('img/banner5.jpg');">
             <div class="container">
                 <center>
-
-
                     <h:form id="form">
-                        <p:growl id="msgs" showDetail = "true"/>
                         <p:fieldset legend="Recursos" toggleable = "True" toggleSpeed = "500">
                             <p:dataTable id="recursosTable" value="#{recursoBean.recursosList}" var="rec" widgetVar="recTable"
-                                         rows="10" paginator="true" paginatorTemplate=" {PreviousPageLink} {PageLinks} {NextPageLink} {Exporters}"
-                                         sortMode="multiple" paginatorPosition="bottom" editable = "True">
-
-                                <p:ajax event = "rowEdit" listener="#{recursoBean.modificarRecurso()}" update = ":form:msg"></p:ajax>
-                                <p:ajax event = "rowEditCancel" listener="#{recursoBean.cancelarModificacion()}" update = ":form:msg"></p:ajax>
-
-
+                                         rows="10" paginator="true" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                                         sortMode="multiple" paginatorPosition="bottom">
                                 <p:column style="column-width: 50em;" headerText="Id" sortBy="#{rec.identificadorInterno}">
-                                    <p:cellEditor>
-                                        <f:facet name ="output"><h:outputText value="#{rec.identificadorInterno}"/></f:facet>
-                                        <f:facet name ="input"><p:inputText id="modelInput" value="#{rec.identificadorInterno}" style = "width: 100%" label = "id"/></f:facet>
-                                    </p:cellEditor>
+                                    <h:outputText value="#{rec.identificadorInterno}"/>
                                 </p:column>
-
                                 <p:column headerText="Tipo" sortBy="#{rec.tipo}" filterMatchMode="exact" filterBy="#{rec.tipo}">
                                     <f:facet name="filter">
                                         <p:selectOneMenu onchange="PF('recTable').filter()" styleClass="custom-filter">
@@ -64,43 +52,23 @@
                                             <f:selectItems value="#{recursoBean.recursoTipos()}"/>
                                         </p:selectOneMenu>
                                     </f:facet>
-                                    <p:cellEditor>
-                                        <f:facet name ="output"><h:outputText value="#{rec.tipo}"/></f:facet>
-                                        <f:facet name ="input"><p:inputText id="modelInput" value="#{rec.tipo}" style = "width: 100%" label = "tipo"/></f:facet>
-                                    </p:cellEditor>
+                                    <h:outputText value="#{rec.tipo}"/>
                                 </p:column>
-
                                 <p:column headerText="Nombre" sortBy="#{rec.nombre}">
-                                    <p:cellEditor>
-                                        <f:facet name ="output"><h:outputText value="#{rec.nombre}"/></f:facet>
-                                        <f:facet name ="input"><p:inputText id="modelInput" value="#{rec.nombre}" style = "width: 100%" label = "nombre"/></f:facet>
-                                    </p:cellEditor>
+                                    <h:outputText value="#{rec.nombre}"/>
                                 </p:column>
-
                                 <p:column headerText="Ubicacion" sortBy="#{rec.ubicacion}" filterBy="#{rec.ubicacion}" filterMatchMode="exact">
-                                    <p:cellEditor>
-                                        <f:facet name ="output"><h:outputText value="#{rec.ubicacion}"/></f:facet>
-                                        <f:facet name ="input"><p:inputText id="modelInput" value="#{rec.ubicacion}" style = "width: 100%" label = "ubicacion"/></f:facet>
-                                    </p:cellEditor>
+                                    <h:outputText value="#{rec.ubicacion}"/>
                                 </p:column>
-
                                 <p:column headerText="Capacidad" sortBy="#{rec.capacidad}" filterBy="#{rec.capacidad}" filterMatchMode="exact">
-                                    <p:cellEditor>
-                                        <f:facet name ="output"><h:outputText value="#{rec.capacidad}"/></f:facet>
-                                        <f:facet name ="input"><p:inputText id="modelInput" value="#{rec.capacidad}" style = "width: 100%" label = "Capacidad"/></f:facet>
-                                    </p:cellEditor>
+                                    <h:outputText value="#{rec.capacidad}"/>
                                 </p:column>
 
-                                <p:column headerText="estado" >
-                                    <p:cellEditor>
-                                        <f:facet name ="output"><h:outputText value="#{rec.estado}"/></f:facet>
-                                        <f:facet name ="input"><p:inputText id="modelInput" value="#{rec.estado}" style = "width: 100%" label = "Estado"/></f:facet>
-                                    </p:cellEditor>
+                                <p:column headerText="estado" sortBy="#{rec.estado}">
+                                    <h:outputText value="#{rec.estado}"/>
                                 </p:column>
 
-                                <p:column style="width: 35px">
-                                    <p:rowEditor/>
-                                </p:column>
+
                             </p:dataTable>
                         </p:fieldset>
                     </h:form>
@@ -109,34 +77,32 @@
         </div>
     </div>
 
-<p:dialog header = "Reserva recurso" widgetVar = "reserva" height = "200">
-    <h:form>
-        <h:panelGrid columns = "2" cellpadding = "5" cellspacing = "150">
-            <h:outputText value="Verifique su correo:" />
-            <p:inputText id="marca2" value="#{prestamoBean.correoUsuario}" required="true"></p:inputText>
+    <p:dialog header = "Añadir Recurso" widgetVar = "reserva" height = "200">
+        <h:form>
+            <h:panelGrid columns = "2" cellpadding = "5" cellspacing = "150">
+                <h:outputText value="Nombre:" />
+                <p:inputText id="marca2" value="#{recursoBean.nombre}" required="true"/>
 
-            <h:outputText value="Id Recurso:" />
-            <p:inputText id="marca3" value="#{prestamoBean.idRecurso}" required="true"></p:inputText>
+                <h:outputText value="Ubicacion:" />
+                <p:inputText id="marca3" value="#{recursoBean.ubicacion}" required="true"/>
 
-            <h:outputText value="Hora Inicio:" />
-            <p:inputText id="marca4" value="#{prestamoBean.horaInicio}" required="true"></p:inputText>
+                <h:outputText value="Tipo:" />
+                <p:selectOneMenu value="#{recursoBean.recursoTipo}" style="width:196px">
+                    <f:selectItems value="#{recursoBean.recursoTipos()}"/>
+                </p:selectOneMenu>
 
-            <h:outputText value="Fecha Inicio:" />
-            <p:inputText id="marca5" value="#{prestamoBean.fechaInicio}" required="true"></p:inputText>
+                <h:outputText value="Capacidad:" />
+                <p:inputText id="marca4" value="#{recursoBean.capacidad}" required="true"/>
 
-            <h:outputText value="Duracion:" />
-            <p:inputText id="marca6" value="#{prestamoBean.duracion}" required="true"></p:inputText>
+            </h:panelGrid>
 
-        </h:panelGrid>
-
-        <div align="center">
-            <p:commandButton align = "center"  value="Reservar" action="#{prestamoBean.registrarPrestamo}"  />
-        </div>
-    </h:form>
+            <div align="center">
+                <p:commandButton align = "center"  value="Añadir" action="#{recursoBean.registrarRecurso}"  />
+            </div>
+        </h:form>
 
 
-</p:dialog>
-
+    </p:dialog>
 
 
 </h:body>
