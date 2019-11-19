@@ -385,6 +385,37 @@ iframe {
   transition: all 0.4s;
 }
 
+.login100-form-btn {
+  font-family: Comic Sans MS;
+  font-style: italic;
+  font-size: 18px;
+  color: #000;
+  line-height: 1.2;
+
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 160px;
+  height: 42px;
+  border-radius: 21px;
+
+  background: #5E5E5E;
+
+  position: relative;
+  z-index: 1;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
 .login100-form-btn::before {
   content: "";
   display: block;
