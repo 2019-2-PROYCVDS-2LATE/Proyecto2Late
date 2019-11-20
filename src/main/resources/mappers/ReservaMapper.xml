@@ -33,6 +33,20 @@
      FROM
       prestamo;
   </select>
+    <select parameterType='map' id='consultarPrestamosUsuarios' resultMap='PrestamoResultUsuario'>
+    SELECT
+      idprestamo,
+      correoUsuario,
+      idrecurso,
+      fechainicio,
+      horainicio,
+      duracion
+
+    FROM
+      prestamo
+    WHERE correo=correoUsuario;
+
+    </select>
 
     <update id='modificarDuracionPrestamo' >
       UPDATE prestamo
