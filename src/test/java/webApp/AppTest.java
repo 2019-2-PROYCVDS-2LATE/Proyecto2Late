@@ -44,11 +44,13 @@ public class AppTest
             ServiciosBiblioteca biblioteca = ServiciosBibliotecaFactory.getInstance().getServiciosBibliotecaTesting();
             Usuario usuario = new Usuario("yeison7f@gmail.com", "backend", "yeisson","12345");
             biblioteca.registrarUsuario(usuario);
+
             /*
             List<Usuario> usuarios = biblioteca.consultarUsuarios();
             System.out.println(usuarios.size());
             assertTrue(usuarios.size()>0);
             */
+
 
 
 
