@@ -76,4 +76,11 @@ public interface ServiciosBiblioteca {
      * @throws ServiciosBibliotecaException
      */
     public Usuario consultarUsuario(String correo) throws ServiciosBibliotecaException;
+
+    /**
+     *
+     * @return
+     * @throws ServiciosBibliotecaException
+     */
+    public List<Usuario> consultarUsuarios() throws ServiciosBibliotecaException;
 }

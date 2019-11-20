@@ -122,4 +122,15 @@ public class ServiciosBibliotecaImpl implements ServiciosBiblioteca{
             throw new ServiciosBibliotecaException("Error al consultar el usuario "+correo,e);
         }
     }
+
+    @Override
+    public List<Usuario> consultarUsuarios() throws ServiciosBibliotecaException {
+        List<Usuario> usuarios= null;
+        try {
+            usuarios = UsuarioDAO.loadAll();
+        } catch (PersistenceException e) {
+            throw new ServiciosBibliotecaException("Error al consultar los usuarios", e);
+        }
+        return usuarios;
+    }
 }
