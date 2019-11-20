@@ -14,10 +14,21 @@
 	<select parameterType='map' id='consultarUsuario' resultMap='UsuarioResult'>
     SELECT
         correo,
-        nombre,
+        area,
+        nombre
+
     FROM
         usuario
      WHERE
         correo=#{correo};
-  </select>
+    </select>
+
+    <select parameterType="map" id="loadAll" resultMap="UsuarioResult">
+        SELECT
+            correo,
+            area,
+            nombre
+        FROM
+            usuario;
+    </select>
 </mapper>

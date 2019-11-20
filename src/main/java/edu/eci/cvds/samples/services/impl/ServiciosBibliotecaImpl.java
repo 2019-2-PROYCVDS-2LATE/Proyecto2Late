@@ -112,4 +112,14 @@ public class ServiciosBibliotecaImpl implements ServiciosBiblioteca{
             throw new ServiciosBibliotecaException("Error al registrar el usuario " + usuario.toString(), e);
         }
     }
+
+    @Override
+    public Usuario consultarUsuario(String correo) throws ServiciosBibliotecaException {
+        try{
+            return UsuarioDAO.consultarUsuario(correo);
+
+        } catch (PersistenceException e ){
+            throw new ServiciosBibliotecaException("Error al consultar el usuario "+correo,e);
+        }
+    }
 }

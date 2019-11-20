@@ -23,16 +23,28 @@ public class MyBatisUsuarioDAO implements UsuarioDAO{
     
     @Override
     public List<Usuario> loadAll() throws PersistenceException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try{
+            return usuarioMapper.loadAll();
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            System.out.println(e.getMessage());
+            throw new PersistenceException("Imposible cargar los usuario",e);
+        }
     }
 
     @Override
-    public void save(Usuario b) throws PersistenceException {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void save(Usuario usuario) throws PersistenceException {
+        try{
+            usuarioMapper.save(usuario);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            System.out.println(e.getMessage());
+            throw new PersistenceException("El usuario ya existe",e);
+        }
     }
 
     @Override
-    public Usuario consualtarUsuario(String correo) throws PersistenceException {
+    public Usuario consultarUsuario(String correo) throws PersistenceException {
         return usuarioMapper.consultarUsuario(correo);
     }
 }
