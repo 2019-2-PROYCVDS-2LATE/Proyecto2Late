@@ -19,7 +19,7 @@ public interface UsuarioMapper {
 	
     public Usuario consultarUsuario(@Param("correo") String correo);
 
-    public void save(@Param("usuario") Usuario usuario);
+    public void save(@Param("usu") Usuario usuario);
 
     public List<Usuario> loadAll();
 

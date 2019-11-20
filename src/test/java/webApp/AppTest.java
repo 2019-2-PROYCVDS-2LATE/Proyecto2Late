@@ -38,9 +38,19 @@ public class AppTest
     public void testApp()  {
         try {
             ServiciosBiblioteca biblioteca = ServiciosBibliotecaFactory.getInstance().getServiciosBibliotecaTesting();
-            Usuario usuario = new Usuario("yeison7f@gmail.com", "backend", "yeisson");
+            Usuario usuario = new Usuario("yeison7f@gmail.com", "backend", "yeisson","12345");
             biblioteca.registrarUsuario(usuario);
-            assertEquals(biblioteca.consultarUsuario("yeison7f@gmail.com"),usuario);
+            Usuario usuario1 = biblioteca.consultarUsuario("yeison7f@gmail.com");
+            //assertEquals(usuario1,usuario);
+            System.out.println(usuario1.getNombre());
+            System.out.println(usuario1.getCorreo());
+            System.out.println(usuario1.getArea());
+            System.out.println(usuario1.getContraseña());
+
+            System.out.println(usuario.getNombre());
+            System.out.println(usuario.getCorreo());
+            System.out.println(usuario.getArea());
+            System.out.println(usuario.getContraseña());
         }
         catch (ServiciosBibliotecaException e){
             System.out.println("Imposible usuario");

@@ -34,7 +34,7 @@
       prestamo;
   </select>
 
-    <select parameterType='map' id='consultarPrestamosUsuario' resultMap='PrestamoResultUsuario'>
+    <select parameterType='map' id='consultarPrestamosUsuario' resultMap='PrestamoResult'>
     SELECT
       idprestamo,
       correoUsuario,
