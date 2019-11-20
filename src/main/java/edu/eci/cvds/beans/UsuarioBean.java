@@ -69,7 +69,7 @@ public class UsuarioBean implements Serializable{
 
     public void save(){
         try{
-            Usuario usuario = new Usuario(correo,area,nombre);
+            Usuario usuario = new Usuario(correo,area,nombre,contraseña);
             serviciosBiblioteca.registrarUsuario(usuario);
             facesError("Registro exitoso");
         } catch (ServiciosBibliotecaException e) {
