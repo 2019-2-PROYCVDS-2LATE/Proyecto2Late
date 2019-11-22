@@ -26,6 +26,7 @@
                 </div>
                 <div class="collapse navbar-collapse navbar-right" id="mynavbar">
                     <ul class="nav navbar-nav">
+                        <li><a onclick="PF('reservasUsuario').show();">Mis Reservas</a></li>
                         <li><a onclick="PF('reserva').show();">Reservar</a></li>
                         <li><a href="/logout">Cerrar Sesión</a></li>
                     </ul>
@@ -38,7 +39,7 @@
         <div class="container">
             <center>
                 <h:form id="form">
-                        <p:fieldset legend="Recursos" toggleable = "True" toggleSpeed = "500">
+                        <p:fieldset legend="Recursos" toggleable = "True" toggleSpeed = "500" collapsed="true" >
                             <p:dataTable id="recursosTable" value="#{recursoBean.recursosList}" var="rec" widgetVar="recTable"
                                          rows="10" paginator="true" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
                                          sortMode="multiple" paginatorPosition="bottom">
@@ -67,6 +68,20 @@
                                 <p:column headerText="estado" sortBy="#{rec.estado}">
                                     <h:outputText value="#{rec.estado}"/>
                                 </p:column>
+
+                                <p:column style="text-align: center; width:60px;">
+                                    <h:form >
+                                        <p:commandLink onclick="PF('disponibilidad').show();">
+                                            <h:graphicImage value="img/icons/calendar.jpeg" />
+                                        </p:commandLink>
+
+
+                                    </h:form>
+                                    <p:dialog header = "Disponibilidad Recurso" widgetVar = "disponibilidad" height = "500">
+                                        <p:schedule id = "calendar" value = "#{recursoBean.eventModel}" widgetVar = "mySchedule"></p:schedule>
+                                    </p:dialog>
+                                </p:column>
+
                             </p:dataTable>
                         </p:fieldset>
                 </h:form>
@@ -75,7 +90,12 @@
     </div>
     </div>
 
-<p:dialog header = "Reserva recurso" widgetVar = "reserva" height = "200">
+
+<p:dialog header = "Reservas de usuario" widgetVar = "reservasUsuario" height = "500" modal = "true" position="center center" onShow="PF('reservasUsuario').initPosition()">
+    <p:schedule id = "calendario" value = "#{prestamoBean.eventModel}" widgetVar = "mySchedule2"></p:schedule>
+</p:dialog>
+
+<p:dialog header = "Reserva recurso" widgetVar = "reserva" height = "200" modal = "true">
     <h:form>
         <h:panelGrid columns = "2" cellpadding = "5" cellspacing = "150">
             <h:outputText value="Verifique su correo:" />
@@ -92,15 +112,12 @@
 
             <h:outputText value="Duracion:" />
             <p:inputText id="marca6" value="#{prestamoBean.duracion}" required="true"></p:inputText>
-
         </h:panelGrid>
 
-    <div align="center">
-        <p:commandButton align = "center"  value="Reservar" action="#{prestamoBean.registrarPrestamo}"  />
-    </div>
+        <div align="center">
+            <p:commandButton align = "center"  value="Reservar" action="#{prestamoBean.registrarPrestamo}"  />
+        </div>
     </h:form>
-
-
 </p:dialog>
 
 

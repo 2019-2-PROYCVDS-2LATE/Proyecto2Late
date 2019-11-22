@@ -30,4 +30,6 @@ public interface PrestamoMapper {
 
     public List<Prestamo> consultarPrestamosUsuario(@Param("correo") String correoUsuario);
 
+
+
 }

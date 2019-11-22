@@ -12,11 +12,20 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import edu.eci.cvds.samples.services.ServiciosBiblioteca;
 import edu.eci.cvds.samples.services.ServiciosBibliotecaException;
 import edu.eci.cvds.samples.services.ServiciosBibliotecaFactory;
+
+import org.primefaces.event.ScheduleEntryMoveEvent;
+import org.primefaces.event.ScheduleEntryResizeEvent;
+import org.primefaces.event.SelectEvent;
+import org.primefaces.model.DefaultScheduleEvent;
+import org.primefaces.model.DefaultScheduleModel;
+import org.primefaces.model.ScheduleEvent;
+import org.primefaces.model.ScheduleModel;
 
 /**
  *
@@ -32,9 +41,17 @@ public class PrestamoBean implements Serializable {
     private int horaInicio;
     private String fechaInicio;
     private int duracion;
+    private ScheduleModel eventModel;
 
     public PrestamoBean() {
+
         setServiciosBiblioteca(ServiciosBibliotecaFactory.getInstance().getServiciosBiblioteca());
+        eventModel = new DefaultScheduleModel();
+        Date inicio = new Date();
+        Date fin = new Date(2019,11,21,22,0,0);
+        DefaultScheduleEvent event = new DefaultScheduleEvent("Prueba",inicio,fin);
+        eventModel.addEvent(event);
+        eventModel.addEvent(event);
     }
 
     public void registrarPrestamo() {
@@ -85,6 +102,10 @@ public class PrestamoBean implements Serializable {
         FacesContext.getCurrentInstance().addMessage("Registro: ", new FacesMessage(FacesMessage.SEVERITY_ERROR, message, "error"));
     }
 
+    public ScheduleModel getEventModel(){
+
+        return eventModel;
+    }
 
     public ServiciosBiblioteca getServiciosBiblioteca() {
         return serviciosBiblioteca;

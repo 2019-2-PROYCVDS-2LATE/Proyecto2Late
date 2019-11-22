@@ -1,5 +1,6 @@
 package edu.eci.cvds.beans;
 
+import edu.eci.cvds.samples.entities.Prestamo;
 import edu.eci.cvds.samples.entities.Recurso;
 import edu.eci.cvds.samples.entities.RecursoTipo;
 import edu.eci.cvds.samples.services.ServiciosBiblioteca;
@@ -8,12 +9,24 @@ import edu.eci.cvds.samples.services.ServiciosBibliotecaFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.ejb.Schedule;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
+
+import org.primefaces.event.ScheduleEntryMoveEvent;
+import org.primefaces.event.ScheduleEntryResizeEvent;
+import org.primefaces.event.SelectEvent;
+import org.primefaces.model.DefaultScheduleEvent;
+import org.primefaces.model.DefaultScheduleModel;
+import org.primefaces.model.ScheduleEvent;
+import org.primefaces.model.ScheduleModel;
+
 /**
  *
  * @author 2LateTeam
@@ -34,8 +47,17 @@ public class RecursoBean implements Serializable {
     private String estado;
     private List<Recurso> recursosList;
 
-    public RecursoBean(){
+    private ScheduleModel eventModel;
 
+    public RecursoBean(){
+        eventModel = new DefaultScheduleModel();
+        Date inicio = new Date(2019,11,21,20,0,0);
+        Date fin = new Date(2019,11,21,22,0,0);
+        DefaultScheduleEvent event = new DefaultScheduleEvent();
+        event.setTitle("Prueba");
+        event.setStartDate(inicio);
+        event.setEndDate(fin);
+        eventModel.addEvent(event);
         serviciosBiblioteca = ServiciosBibliotecaFactory.getInstance().getServiciosBiblioteca();
     }
     public List<Recurso> getRecursosList() {
@@ -43,12 +65,17 @@ public class RecursoBean implements Serializable {
         return recursosList;
     }
 
+
+
     public void setRecursoList(List<Recurso> recursosList) {
         this.recursosList = recursosList;
     }
 
 
+    public ScheduleModel getEventModel(){
 
+        return eventModel;
+    }
     public int getCapacidad() {
         return capacidad;
     }
@@ -132,6 +159,15 @@ public class RecursoBean implements Serializable {
             facesError(e.getMessage());
         }
         return recs;
+    }
+
+/*    public List<Prestamo> consultarReservas(){
+        List<Prestamo> resul = null;
+        try{
+            resul = serviciosBiblioteca.
+        }catch (ServiciosBibliotecaException e){
+
+        }
     }
 
 

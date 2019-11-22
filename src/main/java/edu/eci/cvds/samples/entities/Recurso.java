@@ -16,6 +16,7 @@ public class Recurso implements Serializable{
     private String estado;
 
 
+
 	public Recurso(String nombre, String ubicacion, RecursoTipo tipo, int capacidad){
 		this.nombre = nombre;
 		this.ubicacion = ubicacion;
