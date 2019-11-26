@@ -15,9 +15,9 @@
         <id property='idPrestamo' column='idprestamo'/>
         <result property='correoUsuario' column='correousuario'/>
         <result property='IdRecurso' column='idrecurso'/>
-        <result property='horaInicio' column='horainicio'/>
+        <result property='fechaFin' column='fechafin'/>
         <result property='fechaInicio' column='fechainicio'/>
-        <result property='duracion' column='duracion'/>
+        
     </resultMap>
 
 
@@ -27,8 +27,7 @@
       correoUsuario,
       idrecurso,
       fechainicio,
-      horainicio,
-      duracion
+	  fechafin
 
      FROM
       prestamo;
@@ -40,8 +39,7 @@
       correoUsuario,
       idrecurso,
       fechainicio,
-      horainicio,
-      duracion
+      fechafin
 
     FROM
       prestamo
@@ -55,8 +53,7 @@
       correoUsuario,
       idrecurso,
       fechainicio,
-      horainicio,
-      duracion
+      fechafin
 
     FROM
       prestamo

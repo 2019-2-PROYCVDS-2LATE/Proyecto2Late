@@ -13,32 +13,27 @@ import java.util.Date;
 public class Prestamo implements Serializable {
     private String correoUsuario;
     private int IdRecurso;
-    private int horaInicio;
-    private String fechaInicio;//fecha en la cual se va a prestar el recurso
-    private int duracion; //duracion en horas
+
+    private Date fechaInicio;//fecha en la cual se va a prestar el recurso
+    private Date fechaFin;
     private int idPrestamo;
 
-    public Prestamo(String correoUsuario, int IdRecurso, String fechaInico, int horaInicio){
+
+
+    public Prestamo(String correoUsuario, int IdRecurso,Date fechaInico, Date fechaFina){
         this.setCorreoUsuario(correoUsuario);
         this.setIdRecurso(IdRecurso);
-        this.setHoraInicio(horaInicio);
+
         this.setFechaInicio(fechaInico);
+
     }
 
-    public Prestamo(String correoUsuario, int IdRecurso,String fechaInico, int horaInicio, int duracion){
+    public Prestamo(int idPrestamo, String correoUsuario, int IdRecurso,Date fechaInico, Date fechaFina){
         this.setCorreoUsuario(correoUsuario);
         this.setIdRecurso(IdRecurso);
-        this.setHoraInicio(horaInicio);
-        this.setFechaInicio(fechaInico);
-        this.setDuracion(duracion);
-    }
 
-    public Prestamo(int idPrestamo, String correoUsuario, int IdRecurso,String fechaInico, int horaInicio, int duracion){
-        this.setCorreoUsuario(correoUsuario);
-        this.setIdRecurso(IdRecurso);
-        this.setHoraInicio(horaInicio);
         this.setFechaInicio(fechaInico);
-        this.setDuracion(duracion);
+
         this.setIdPrestamo(idPrestamo);
     }
 
@@ -59,28 +54,21 @@ public class Prestamo implements Serializable {
         IdRecurso = idRecurso;
     }
 
-    public int getHoraInicio() {
-        return horaInicio;
-    }
 
-    public void setHoraInicio(int horaInicio) {
-        this.horaInicio = horaInicio;
-    }
-
-    public String getFechaInicio() {
+    public Date getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(String fechaInicio) {
+    public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public int getDuracion() {
-        return duracion;
+    public Date getFechaFin() {
+        return fechaFin;
     }
 
-    public void setDuracion(int duracion) {
-        this.duracion = duracion;
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
     public int getIdPrestamo() {

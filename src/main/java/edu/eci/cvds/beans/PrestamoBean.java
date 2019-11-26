@@ -38,26 +38,36 @@ public class PrestamoBean implements Serializable {
 
     private String correoUsuario;
     private int idRecurso;
-    private int horaInicio;
-    private String fechaInicio;
-    private int duracion;
+    private Date fechaInicio;
+    private Date fechaFin;
     private ScheduleModel eventModel;
 
     public PrestamoBean() {
 
         setServiciosBiblioteca(ServiciosBibliotecaFactory.getInstance().getServiciosBiblioteca());
         eventModel = new DefaultScheduleModel();
-        Date inicio = new Date();
-        Date fin = new Date(2019,11,21,22,0,0);
-        DefaultScheduleEvent event = new DefaultScheduleEvent("Prueba",inicio,fin);
-        eventModel.addEvent(event);
-        eventModel.addEvent(event);
+    }
+    
+    public void cargarEventos(){
+        List<Prestamo> prestamosUsuario = null;
+        try {
+            prestamosUsuario = serviciosBiblioteca.consultarPrestamosUsuario(correoUsuario);
+        } catch (ServiciosBibliotecaException e) {
+            e.printStackTrace();
+        }
+        for (int i = 0; i<prestamosUsuario.size(); i++) {
+        	Date inicio = prestamosUsuario.get(i).getFechaInicio();
+        	Date fin = prestamosUsuario.get(i).getFechaFin();
+        	DefaultScheduleEvent event = new DefaultScheduleEvent("Prestamo",inicio,fin);
+        	eventModel.addEvent(event);
+        }
+        
     }
 
     public void registrarPrestamo() {
         try {
             //System.out.println(correoUsuario + " " + idRecurso + " " + horaInicio + " " +fechaInicio+" "+duracion);
-            Prestamo prestamo = new Prestamo(getCorreoUsuario(), getIdRecurso(), getFechaInicio(), getHoraInicio(), getDuracion());
+            Prestamo prestamo = new Prestamo(getCorreoUsuario(), getIdRecurso(), getFechaInicio(), getFechaFin());
             getServiciosBiblioteca().registrarPrestamo(prestamo);
             facesError("Registro Exitoso!");
         } catch (ServiciosBibliotecaException e) {
@@ -77,8 +87,7 @@ public class PrestamoBean implements Serializable {
             for(Prestamo p: prestamosGuardados){
                 if(p.getIdRecurso() == prestamo.getIdRecurso() &&
                         p.getFechaInicio().equals(prestamo.getFechaInicio()) &&
-                        p.getHoraInicio()==prestamo.getHoraInicio() &&
-                        (p.getDuracion()+p.getHoraInicio())<=prestamo.getHoraInicio()
+                        p.getFechaFin().equals(prestamo.getFechaFin())
 
                 ){
                     return false;
@@ -131,27 +140,25 @@ public class PrestamoBean implements Serializable {
         this.idRecurso = idRecurso;
     }
 
-    public int getHoraInicio() {
-        return horaInicio;
-    }
 
-    public void setHoraInicio(int horaInicio) {
-        this.horaInicio = horaInicio;
-    }
 
-    public String getFechaInicio() {
+
+
+    public Date getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(String fechaInicio) {
+    public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
-
-    public int getDuracion() {
-        return duracion;
+    
+    public Date getFechaFin() {
+        return fechaFin;
     }
 
-    public void setDuracion(int duracion) {
-        this.duracion = duracion;
+    public void setFechaFin(Date fechaFi) {
+        this.fechaFin = fechaFi;
     }
+
+
 }

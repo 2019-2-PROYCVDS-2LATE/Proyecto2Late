@@ -51,8 +51,10 @@ public class RecursoBean implements Serializable {
 
     public RecursoBean(){
         eventModel = new DefaultScheduleModel();
-        Date inicio = new Date(2019,11,21,20,0,0);
-        Date fin = new Date(2019,11,21,22,0,0);
+        Date inicio = new Date(19,11,21,20,0,0);
+        Date fin = new Date(19,11,21,22,0,0);
+        System.out.println(inicio);
+        System.out.println(fin);
         DefaultScheduleEvent event = new DefaultScheduleEvent();
         event.setTitle("Prueba");
         event.setStartDate(inicio);
