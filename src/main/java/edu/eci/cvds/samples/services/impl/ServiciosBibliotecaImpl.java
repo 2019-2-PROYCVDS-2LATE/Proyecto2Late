@@ -99,7 +99,7 @@ public class ServiciosBibliotecaImpl implements ServiciosBiblioteca{
             prestamosUsuario =  prestamoDAO.consultarPrestamosUsuario(correoUsuario);
         }
         catch (PersistenceException e){
-            throw new ServiciosBibliotecaException("Error al consultar las reservas del usuario.");
+            throw new ServiciosBibliotecaException("Error al consultar las reservas del usuario.",e);
         }
         return prestamosUsuario;
     }
@@ -132,5 +132,17 @@ public class ServiciosBibliotecaImpl implements ServiciosBiblioteca{
             throw new ServiciosBibliotecaException("Error al consultar los usuarios", e);
         }
         return usuarios;
+    }
+
+    @Override
+    public List<Prestamo> consultarPrestamosRecurso(Recurso recurso) throws ServiciosBibliotecaException {
+        List<Prestamo> prestamosRecurso = null;
+        try{
+            prestamosRecurso = prestamoDAO.consultarPrestamosRecurso(recurso);
+        }
+        catch (PersistenceException e){
+            throw new ServiciosBibliotecaException("Error al consultar las reservas del recurso.",e);
+        }
+        return prestamosRecurso;
     }
 }

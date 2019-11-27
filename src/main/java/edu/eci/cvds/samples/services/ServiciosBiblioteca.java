@@ -83,4 +83,12 @@ public interface ServiciosBiblioteca {
      * @throws ServiciosBibliotecaException
      */
     public List<Usuario> consultarUsuarios() throws ServiciosBibliotecaException;
+
+    /**
+     *
+     * @param recurso
+     * @return Todas las reservas con las que cuenta un recurso
+     * @throws ServiciosBibliotecaException
+     */
+    public List<Prestamo> consultarPrestamosRecurso(Recurso recurso) throws ServiciosBibliotecaException;
 }

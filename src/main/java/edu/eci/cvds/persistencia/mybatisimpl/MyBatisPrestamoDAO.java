@@ -16,6 +16,8 @@ import edu.eci.cvds.persistencia.mybatisimpl.mappers.PrestamoMapper;
 import java.util.List;
 import edu.eci.cvds.persistencia.PersistenceException;
 import edu.eci.cvds.samples.entities.Prestamo;
+import edu.eci.cvds.samples.entities.Recurso;
+
 /**
  *
  * @author 2LateTeam
@@ -63,5 +65,10 @@ public class MyBatisPrestamoDAO implements PrestamoDAO{
     @Override
     public List<Prestamo> consultarPrestamosUsuario(String correoUsuario) throws PersistenceException {
         return prestamoMapper.consultarPrestamosUsuario(correoUsuario);
+    }
+
+    @Override
+    public List<Prestamo> consultarPrestamosRecurso(Recurso recurso) throws PersistenceException {
+        return prestamoMapper.consultarPrestamosRecurso(recurso);
     }
 }

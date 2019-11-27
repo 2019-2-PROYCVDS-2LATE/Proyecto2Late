@@ -7,6 +7,7 @@ package edu.eci.cvds.persistencia;
 import java.util.Date;
 import java.util.List;
 import edu.eci.cvds.samples.entities.Prestamo;
+import edu.eci.cvds.samples.entities.Recurso;
 
 /**
  *
@@ -25,4 +26,6 @@ public interface PrestamoDAO {
     public List<Prestamo> consultarPrestamos() throws PersistenceException;
 
     public List<Prestamo> consultarPrestamosUsuario(String correoUsuario) throws PersistenceException;
+
+    public List<Prestamo> consultarPrestamosRecurso(Recurso recurso) throws PersistenceException;
 }

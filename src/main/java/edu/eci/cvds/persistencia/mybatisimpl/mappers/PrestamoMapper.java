@@ -7,6 +7,7 @@ package edu.eci.cvds.persistencia.mybatisimpl.mappers;
 
 import java.util.List;
 
+import edu.eci.cvds.samples.entities.Recurso;
 import org.apache.ibatis.annotations.Param;
 
 import edu.eci.cvds.samples.entities.Prestamo;
@@ -30,6 +31,6 @@ public interface PrestamoMapper {
 
     public List<Prestamo> consultarPrestamosUsuario(@Param("correo") String correoUsuario);
 
-
+    public List<Prestamo> consultarPrestamosRecurso(@Param("rec")Recurso recurso);
 
 }

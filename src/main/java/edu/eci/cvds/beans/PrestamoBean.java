@@ -42,8 +42,11 @@ public class PrestamoBean implements Serializable {
     private Date fechaFin;
     private ScheduleModel eventModel;
 
+    /**
+     * Obtenemos una instancia de ServiciosBiblioteca,
+     * para poder utilizar los servicios de la biblioteca
+     */
     public PrestamoBean() {
-
         setServiciosBiblioteca(ServiciosBibliotecaFactory.getInstance().getServiciosBiblioteca());
         eventModel = new DefaultScheduleModel();
     }
@@ -159,6 +162,5 @@ public class PrestamoBean implements Serializable {
     public void setFechaFin(Date fechaFi) {
         this.fechaFin = fechaFi;
     }
-
 
 }
