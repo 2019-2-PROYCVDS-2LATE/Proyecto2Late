@@ -43,8 +43,8 @@ public class PrestamoBean implements Serializable {
 
     private String correoUsuario;
     private int idRecurso;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private String fechaInicio;
+    private String fechaFin;
     private ScheduleModel eventModel;
 
     /**
@@ -160,19 +160,19 @@ public class PrestamoBean implements Serializable {
 
 
 
-    public Date getFechaInicio() {
+    public String getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
     
-    public Date getFechaFin() {
+    public String getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(Date fechaFi) {
+    public void setFechaFin(String fechaFi) {
         this.fechaFin = fechaFi;
     }
 
