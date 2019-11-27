@@ -26,9 +26,12 @@
                 </div>
                 <div class="collapse navbar-collapse navbar-right" id="mynavbar">
                     <ul class="nav navbar-nav">
+
+                        <li><a>#{request.remoteUser}</a></li>
                         <li><a onclick="PF('reservasUsuario').show();">Mis Reservas</a></li>
                         <li><a onclick="PF('reserva').show();">Reservar</a></li>
                         <li><a href="/logout">Cerrar Sesión</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -104,14 +107,11 @@
             <h:outputText value="Id Recurso:" />
             <p:inputText id="marca3" value="#{prestamoBean.idRecurso}" required="true"></p:inputText>
 
-            <h:outputText value="Hora Inicio:" />
-            <p:inputText id="marca4" value="#{prestamoBean.horaInicio}" required="true"></p:inputText>
-
             <h:outputText value="Fecha Inicio:" />
             <p:inputText id="marca5" value="#{prestamoBean.fechaInicio}" required="true"></p:inputText>
 
-            <h:outputText value="Duracion:" />
-            <p:inputText id="marca6" value="#{prestamoBean.duracion}" required="true"></p:inputText>
+            <h:outputText value="Fecha Fin:" />
+            <p:inputText id="marca6" value="#{prestamoBean.fechaFin}" required="true"></p:inputText>
         </h:panelGrid>
 
         <div align="center">

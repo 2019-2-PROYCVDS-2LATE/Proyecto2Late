@@ -5,6 +5,8 @@
  */
 package edu.eci.cvds.samples.entities;
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 /**
  *
@@ -18,22 +20,41 @@ public class Prestamo implements Serializable {
     private Date fechaFin;
     private int idPrestamo;
 
-
-
-    public Prestamo(String correoUsuario, int IdRecurso,Date fechaInico, Date fechaFina){
+    public Prestamo(String correoUsuario, int IdRecurso, String fechaInico, String fechaFina){
         this.setCorreoUsuario(correoUsuario);
         this.setIdRecurso(IdRecurso);
-
-        this.setFechaInicio(fechaInico);
+        Date ini = null;
+        Date fin = null;
+        SimpleDateFormat formatter=new SimpleDateFormat("E, MMM dd yyyy HH:mm:ss");
+        try {
+            ini=formatter.parse(fechaInico);
+            fin=formatter.parse(fechaFina);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        this.setFechaInicio(ini);
+        this.setFechaFin(fin);
 
     }
 
-    public Prestamo(int idPrestamo, String correoUsuario, int IdRecurso,Date fechaInico, Date fechaFina){
+
+
+    public Prestamo(int idPrestamo, String correoUsuario, int IdRecurso,String fechaInico, String fechaFina){
         this.setCorreoUsuario(correoUsuario);
         this.setIdRecurso(IdRecurso);
-
-        this.setFechaInicio(fechaInico);
-
+        Date ini = null;
+        Date fin = null;
+        System.out.println(fechaInico);
+        System.out.println(fechaFina);
+        SimpleDateFormat formatter=new SimpleDateFormat("E, MMM dd yyyy HH:mm:ss");
+        try {
+            ini=formatter.parse(fechaInico);
+            fin=formatter.parse(fechaFina);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        this.setFechaInicio(ini);
+        this.setFechaFin(fin);
         this.setIdPrestamo(idPrestamo);
     }
 
@@ -53,7 +74,6 @@ public class Prestamo implements Serializable {
     public void setIdRecurso(int idRecurso) {
         IdRecurso = idRecurso;
     }
-
 
     public Date getFechaInicio() {
         return fechaInicio;

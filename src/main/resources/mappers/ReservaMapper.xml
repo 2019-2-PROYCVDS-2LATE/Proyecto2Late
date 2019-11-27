@@ -6,8 +6,8 @@
 <mapper namespace="edu.eci.cvds.persistencia.mybatisimpl.mappers.PrestamoMapper">
 
     <insert parameterType="map" id="registrarPrestamo" >
-        INSERT INTO prestamo (correousuario, idrecurso, horainicio, fechainicio, duracion)
-            VALUES (#{pres.correoUsuario},#{pres.idRecurso},#{pres.horaInicio},#{pres.fechaInicio},#{pres.duracion})
+        INSERT INTO prestamo (correousuario, idrecurso, fechainicio, fechaFin)
+            VALUES (#{pres.correoUsuario},#{pres.idRecurso},#{pres.fechaInicio},#{pres.fechaFin})
     </insert>
 
 
@@ -15,8 +15,8 @@
         <id property='idPrestamo' column='idprestamo'/>
         <result property='correoUsuario' column='correousuario'/>
         <result property='IdRecurso' column='idrecurso'/>
-        <result property='fechaFin' column='fechafin'/>
         <result property='fechaInicio' column='fechainicio'/>
+        <result property='fechaFin' column='fechafin'/>
         
     </resultMap>
 

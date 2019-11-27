@@ -11,7 +11,10 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -27,6 +30,8 @@ import org.primefaces.model.DefaultScheduleModel;
 import org.primefaces.model.ScheduleEvent;
 import org.primefaces.model.ScheduleModel;
 
+
+import javax.servlet.http.HttpServletRequest;
 /**
  *
  * @author 2LateTeam
@@ -45,23 +50,31 @@ public class PrestamoBean implements Serializable {
     public PrestamoBean() {
 
         setServiciosBiblioteca(ServiciosBibliotecaFactory.getInstance().getServiciosBiblioteca());
+        HttpServletRequest request=(HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+
+        correoUsuario = request.getRemoteUser();
         eventModel = new DefaultScheduleModel();
+        cargarEventos();
+
     }
     
     public void cargarEventos(){
         List<Prestamo> prestamosUsuario = null;
         try {
             prestamosUsuario = serviciosBiblioteca.consultarPrestamosUsuario(correoUsuario);
+            System.out.println(prestamosUsuario.size());
         } catch (ServiciosBibliotecaException e) {
             e.printStackTrace();
         }
         for (int i = 0; i<prestamosUsuario.size(); i++) {
         	Date inicio = prestamosUsuario.get(i).getFechaInicio();
         	Date fin = prestamosUsuario.get(i).getFechaFin();
+            System.out.println(inicio);
+            System.out.println(fin);
         	DefaultScheduleEvent event = new DefaultScheduleEvent("Prestamo",inicio,fin);
         	eventModel.addEvent(event);
         }
-        
+
     }
 
     public void registrarPrestamo() {
