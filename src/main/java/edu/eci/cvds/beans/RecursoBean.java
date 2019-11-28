@@ -15,6 +15,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
@@ -47,36 +49,48 @@ public class RecursoBean implements Serializable {
     private String estado;
     private List<Recurso> recursosList;
 
-    private ScheduleModel eventModel;
+
 
     public RecursoBean(){
-        eventModel = new DefaultScheduleModel();
-        Date inicio = new Date(19,11,21,20,0,0);
-        Date fin = new Date(19,11,21,22,0,0);
-
-        DefaultScheduleEvent event = new DefaultScheduleEvent();
-        event.setTitle("Prueba");
-        event.setStartDate(inicio);
-        event.setEndDate(fin);
-        eventModel.addEvent(event);
         serviciosBiblioteca = ServiciosBibliotecaFactory.getInstance().getServiciosBiblioteca();
+        recursosList = consultarRecursos();
+        cargarEventos();
     }
     public List<Recurso> getRecursosList() {
-        recursosList = consultarRecursos();
+
         return recursosList;
     }
 
 
+    public void cargarEventos(){
+        for (int i = 0; i<recursosList.size(); i++){
+            List<Prestamo> prestamosReserva = null;
+            try {
+                prestamosReserva = serviciosBiblioteca.consultarPrestamosRecurso(recursosList.get(i));
 
+            } catch (ServiciosBibliotecaException e) {
+                e.printStackTrace();
+            }
+
+            SimpleDateFormat formatter=new SimpleDateFormat("E, MMM dd yyyy HH:mm:ss");
+            for (int j = 0; j<prestamosReserva.size(); j++) {
+                Date fin = null;
+                Date inicio = null;
+                try {
+                    inicio = formatter.parse(prestamosReserva.get(j).getFechaInicio());
+                    fin = formatter.parse(prestamosReserva.get(j).getFechaFin());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                DefaultScheduleEvent event = new DefaultScheduleEvent("Prestamo",inicio,fin);
+                recursosList.get(i).getEventModel().addEvent(event);;
+            }
+        }
+    }
     public void setRecursoList(List<Recurso> recursosList) {
         this.recursosList = recursosList;
     }
 
-
-    public ScheduleModel getEventModel(){
-
-        return eventModel;
-    }
     public int getCapacidad() {
         return capacidad;
     }
