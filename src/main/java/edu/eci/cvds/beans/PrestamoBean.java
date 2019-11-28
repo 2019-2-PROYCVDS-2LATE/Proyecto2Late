@@ -57,7 +57,7 @@ public class PrestamoBean implements Serializable {
 
         correoUsuario = request.getRemoteUser();
         eventModel = new DefaultScheduleModel();
-        cargarEventos();
+
 
     }
     
