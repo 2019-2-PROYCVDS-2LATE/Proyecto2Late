@@ -135,7 +135,7 @@ public class ServiciosBibliotecaImpl implements ServiciosBiblioteca{
     }
 
     @Override
-    public List<Prestamo> consultarPrestamosRecurso(Recurso recurso) throws ServiciosBibliotecaException {
+    public List<Prestamo> consultarPrestamosRecurso(String recurso) throws ServiciosBibliotecaException {
         List<Prestamo> prestamosRecurso = null;
         try{
             prestamosRecurso = prestamoDAO.consultarPrestamosRecurso(recurso);
@@ -144,5 +144,15 @@ public class ServiciosBibliotecaImpl implements ServiciosBiblioteca{
             throw new ServiciosBibliotecaException("Error al consultar las reservas del recurso.",e);
         }
         return prestamosRecurso;
+    }
+
+    @Override
+    public void cancelarPrestamo(String correoUsuario, int idRecurso) throws ServiciosBibliotecaException {
+        try{
+            prestamoDAO.cancelarPrestamo(correoUsuario, idRecurso);
+        }
+        catch (PersistenceException e){
+            throw new ServiciosBibliotecaException("Error al eliminar la reserva del usuario",e);
+        }
     }
 }

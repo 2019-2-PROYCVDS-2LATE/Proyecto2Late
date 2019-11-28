@@ -68,7 +68,17 @@ public class MyBatisPrestamoDAO implements PrestamoDAO{
     }
 
     @Override
-    public List<Prestamo> consultarPrestamosRecurso(Recurso recurso) throws PersistenceException {
+    public List<Prestamo> consultarPrestamosRecurso(String recurso) throws PersistenceException {
         return prestamoMapper.consultarPrestamosRecurso(recurso);
+    }
+
+    @Override
+    public void cancelarPrestamo(String correoUsuario, int idRecurso) throws PersistenceException {
+        try{
+            prestamoMapper.cancelarPrestamo(correoUsuario,idRecurso);
+        }
+        catch (org.apache.ibatis.exceptions.PersistenceException e){
+            throw new PersistenceException("No es posible cancelar la reserva.",e);
+        }
     }
 }

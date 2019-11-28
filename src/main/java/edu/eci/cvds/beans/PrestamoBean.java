@@ -54,11 +54,8 @@ public class PrestamoBean implements Serializable {
     public PrestamoBean() {
         setServiciosBiblioteca(ServiciosBibliotecaFactory.getInstance().getServiciosBiblioteca());
         HttpServletRequest request=(HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-
         correoUsuario = request.getRemoteUser();
         eventModel = new DefaultScheduleModel();
-
-
     }
     
     public void cargarEventos(){
@@ -72,12 +69,11 @@ public class PrestamoBean implements Serializable {
         for (int i = 0; i<prestamosUsuario.size(); i++) {
         	Date inicio = prestamosUsuario.get(i).getFechaInicio();
         	Date fin = prestamosUsuario.get(i).getFechaFin();
-            System.out.println(inicio);
-            System.out.println(fin);
+            //System.out.println(inicio);
+            //System.out.println(fin);
         	DefaultScheduleEvent event = new DefaultScheduleEvent("Prestamo",inicio,fin);
         	eventModel.addEvent(event);
         }
-
     }
 
     public void registrarPrestamo() {
@@ -87,6 +83,36 @@ public class PrestamoBean implements Serializable {
             getServiciosBiblioteca().registrarPrestamo(prestamo);
             facesError("Registro Exitoso!");
         } catch (ServiciosBibliotecaException e) {
+            facesError(e.getMessage());
+        }
+    }
+
+    /**
+     *
+     * @param recurso
+     */
+    public void consultarPrestamoRecurso(String recurso){
+        List<Prestamo> prestamosRecurso = null;
+        try{
+            prestamosRecurso = serviciosBiblioteca.consultarPrestamosRecurso(recurso);
+        }
+        catch(ServiciosBibliotecaException e){
+            e.printStackTrace();
+        }
+        for(Prestamo p: prestamosRecurso){
+            Date inicio = p.getFechaInicio();
+            Date fin = p.getFechaFin();
+            //System.out.println(inicio);
+            //System.out.println(fin);
+            DefaultScheduleEvent event = new DefaultScheduleEvent("Prestamo",inicio,fin);
+            eventModel.addEvent(event);
+        }
+    }
+    public void cancelarPrestamo(String correoUsuario,int idRecurso){
+        try{
+            serviciosBiblioteca.cancelarPrestamo(correoUsuario,idRecurso);
+        }
+        catch (ServiciosBibliotecaException e){
             facesError(e.getMessage());
         }
     }

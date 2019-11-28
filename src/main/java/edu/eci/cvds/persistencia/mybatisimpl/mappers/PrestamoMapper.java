@@ -31,6 +31,8 @@ public interface PrestamoMapper {
 
     public List<Prestamo> consultarPrestamosUsuario(@Param("correo") String correoUsuario);
 
-    public List<Prestamo> consultarPrestamosRecurso(@Param("rec")Recurso recurso);
+    public List<Prestamo> consultarPrestamosRecurso(@Param("rec")String recurso);
+
+    public void cancelarPrestamo(@Param("correo") String correo,@Param("id") int id);
 
 }

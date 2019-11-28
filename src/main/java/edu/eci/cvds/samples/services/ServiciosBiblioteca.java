@@ -90,5 +90,14 @@ public interface ServiciosBiblioteca {
      * @return Todas las reservas con las que cuenta un recurso
      * @throws ServiciosBibliotecaException
      */
-    public List<Prestamo> consultarPrestamosRecurso(Recurso recurso) throws ServiciosBibliotecaException;
+    public List<Prestamo> consultarPrestamosRecurso(String recurso) throws ServiciosBibliotecaException;
+
+    /**
+     *
+     * @param correoUsuario
+     * @param idRecurso
+     * Para cancelar una reservacion es necesario conocer el usuario que reservo el recurso y el recurso
+     * @throws ServiciosBibliotecaException
+     */
+    public void cancelarPrestamo(String correoUsuario,int idRecurso ) throws ServiciosBibliotecaException;
 }
