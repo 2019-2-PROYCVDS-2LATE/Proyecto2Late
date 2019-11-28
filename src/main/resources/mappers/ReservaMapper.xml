@@ -65,5 +65,11 @@
       UPDATE prestamo
       SET duracion = #{dur}
       WHERE id = #{id}
-  </update>
+    </update>
+
+    <delete id="cancelarPrestamo" >
+        DELETE FROM prestamo
+        WHERE #{correo} = correoUsuario and #{id}=idRecurso;
+    </delete>
+
 </mapper>
