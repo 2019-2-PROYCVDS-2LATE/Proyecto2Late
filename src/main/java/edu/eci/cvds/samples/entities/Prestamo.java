@@ -35,8 +35,6 @@ public class Prestamo implements Serializable {
         this.setCorreoUsuario(correoUsuario);
         this.setIdRecurso(IdRecurso);
 
-        System.out.println(fechaInico);
-        System.out.println(fechaFina);
         this.setFechaInicio(fechaInico);
         this.setFechaFin(fechaFina);
         this.setIdPrestamo(idPrestamo);

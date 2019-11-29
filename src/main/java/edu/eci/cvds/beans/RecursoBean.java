@@ -83,7 +83,9 @@ public class RecursoBean implements Serializable {
                     e.printStackTrace();
                 }
                 DefaultScheduleEvent event = new DefaultScheduleEvent("Prestamo",inicio,fin);
-                recursosList.get(i).getEventModel().addEvent(event);;
+                System.out.println(inicio);
+                System.out.println(fin);
+                recursosList.get(i).getEventModel().addEvent(event);
             }
         }
     }
