@@ -56,9 +56,11 @@ public class RecursoBean implements Serializable {
     public RecursoBean(){
         serviciosBiblioteca = ServiciosBibliotecaFactory.getInstance().getServiciosBiblioteca();
         recursosList = consultarRecursos();
+
         System.out.println(recursosList.size());
         cargarModelos();
         System.out.println(modelos.size());
+        cargarEventos();
 
 
     }
@@ -91,12 +93,26 @@ public class RecursoBean implements Serializable {
                 DefaultScheduleEvent event = new DefaultScheduleEvent("Prestamo",inicio,fin);
                 System.out.println(inicio);
                 System.out.println(fin);
-                modelos.get(i).addEvent(event);
+
+                getModelo(recursosList.get(i).getIdentificadorInterno()).addEvent(event);
 
             }
 
         }
 
+    }
+
+
+
+
+
+    public void cargarModelos(){
+        modelos = new ArrayList<ScheduleModel>();
+        for (int i = 0; i < recursosList.size(); i++){
+            ScheduleModel ev = new DefaultScheduleModel();
+            modelos.add(ev);
+
+        }
     }
 
     public ScheduleModel getModelo(int id){
@@ -106,14 +122,8 @@ public class RecursoBean implements Serializable {
                 respuesta = modelos.get(i);
             }
         }
+
         return respuesta;
-    }
-    public void cargarModelos(){
-        modelos = new ArrayList<ScheduleModel>();
-        for (int i = 0; i < recursosList.size(); i++){
-            ScheduleModel ev = new DefaultScheduleModel();
-            modelos.add(ev);
-        }
     }
     public void setRecursoList(List<Recurso> recursosList) {
         this.recursosList = recursosList;
