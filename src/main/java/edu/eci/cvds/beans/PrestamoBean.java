@@ -74,6 +74,7 @@ public class PrestamoBean implements Serializable {
         for (int i = 0; i<prestamosUsuario.size(); i++) {
         	Date fin = null;
         	Date inicio = null;
+
 			try {
 				inicio = formatter.parse(prestamosUsuario.get(i).getFechaInicio());
 				fin = formatter.parse(prestamosUsuario.get(i).getFechaFin());

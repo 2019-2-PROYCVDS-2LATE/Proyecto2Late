@@ -18,6 +18,7 @@ import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -48,13 +49,18 @@ public class RecursoBean implements Serializable {
     private String identificadorInterno;
     private String estado;
     private List<Recurso> recursosList;
+    private List<ScheduleModel> modelos;
 
 
 
     public RecursoBean(){
         serviciosBiblioteca = ServiciosBibliotecaFactory.getInstance().getServiciosBiblioteca();
         recursosList = consultarRecursos();
-        cargarEventos();
+        System.out.println(recursosList.size());
+        cargarModelos();
+        System.out.println(modelos.size());
+
+
     }
     public List<Recurso> getRecursosList() {
 
@@ -71,7 +77,7 @@ public class RecursoBean implements Serializable {
             } catch (ServiciosBibliotecaException e) {
                 e.printStackTrace();
             }
-
+            ScheduleModel eventModel = new DefaultScheduleModel();
             SimpleDateFormat formatter=new SimpleDateFormat("E, MMM dd yyyy HH:mm:ss");
             for (int j = 0; j<prestamosReserva.size(); j++) {
                 Date fin = null;
@@ -85,8 +91,28 @@ public class RecursoBean implements Serializable {
                 DefaultScheduleEvent event = new DefaultScheduleEvent("Prestamo",inicio,fin);
                 System.out.println(inicio);
                 System.out.println(fin);
-                recursosList.get(i).getEventModel().addEvent(event);
+                modelos.get(i).addEvent(event);
+
             }
+
+        }
+
+    }
+
+    public ScheduleModel getModelo(int id){
+        ScheduleModel respuesta = new DefaultScheduleModel();
+        for (int i = 0; i < recursosList.size(); i++){
+            if(recursosList.get(i).getIdentificadorInterno()==id){
+                respuesta = modelos.get(i);
+            }
+        }
+        return respuesta;
+    }
+    public void cargarModelos(){
+        modelos = new ArrayList<ScheduleModel>();
+        for (int i = 0; i < recursosList.size(); i++){
+            ScheduleModel ev = new DefaultScheduleModel();
+            modelos.add(ev);
         }
     }
     public void setRecursoList(List<Recurso> recursosList) {
