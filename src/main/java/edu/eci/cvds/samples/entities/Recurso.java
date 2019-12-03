@@ -6,6 +6,11 @@
 package edu.eci.cvds.samples.entities;
 
 import java.io.Serializable;
+import java.util.Date;
+
+import org.primefaces.model.DefaultScheduleEvent;
+import org.primefaces.model.DefaultScheduleModel;
+import org.primefaces.model.ScheduleModel;
 
 public class Recurso implements Serializable{
     private int identificadorInterno;
@@ -14,7 +19,6 @@ public class Recurso implements Serializable{
     private RecursoTipo tipo;
     private int capacidad;
     private String estado;
-
 
 
 	public Recurso(String nombre, String ubicacion, RecursoTipo tipo, int capacidad){
@@ -34,12 +38,11 @@ public class Recurso implements Serializable{
 		}
 		this.nombre = nombre;
 		this.ubicacion = ubicacion;
-
 		this.capacidad = capacidad;
 		this.estado = estado;
 		this.identificadorInterno = identificadorInterno;
-
 	}
+
 
 	public int getIdentificadorInterno() {
 			return identificadorInterno;

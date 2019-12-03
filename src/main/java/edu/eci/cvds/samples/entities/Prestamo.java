@@ -16,24 +16,16 @@ public class Prestamo implements Serializable {
     private String correoUsuario;
     private int IdRecurso;
 
-    private Date fechaInicio;//fecha en la cual se va a prestar el recurso
-    private Date fechaFin;
+    private String fechaInicio;//fecha en la cual se va a prestar el recurso
+    private String fechaFin;
     private int idPrestamo;
 
     public Prestamo(String correoUsuario, int IdRecurso, String fechaInico, String fechaFina){
         this.setCorreoUsuario(correoUsuario);
         this.setIdRecurso(IdRecurso);
-        Date ini = null;
-        Date fin = null;
-        SimpleDateFormat formatter=new SimpleDateFormat("E, MMM dd yyyy HH:mm:ss");
-        try {
-            ini=formatter.parse(fechaInico);
-            fin=formatter.parse(fechaFina);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        this.setFechaInicio(ini);
-        this.setFechaFin(fin);
+
+        this.setFechaInicio(fechaInico);
+        this.setFechaFin(fechaFina);
 
     }
 
@@ -42,19 +34,9 @@ public class Prestamo implements Serializable {
     public Prestamo(int idPrestamo, String correoUsuario, int IdRecurso,String fechaInico, String fechaFina){
         this.setCorreoUsuario(correoUsuario);
         this.setIdRecurso(IdRecurso);
-        Date ini = null;
-        Date fin = null;
-        System.out.println(fechaInico);
-        System.out.println(fechaFina);
-        SimpleDateFormat formatter=new SimpleDateFormat("E, MMM dd yyyy HH:mm:ss");
-        try {
-            ini=formatter.parse(fechaInico);
-            fin=formatter.parse(fechaFina);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        this.setFechaInicio(ini);
-        this.setFechaFin(fin);
+
+        this.setFechaInicio(fechaInico);
+        this.setFechaFin(fechaFina);
         this.setIdPrestamo(idPrestamo);
     }
 
@@ -75,19 +57,19 @@ public class Prestamo implements Serializable {
         IdRecurso = idRecurso;
     }
 
-    public Date getFechaInicio() {
+    public String getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechaFin() {
+    public String getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(String fechaFin) {
         this.fechaFin = fechaFin;
     }
 

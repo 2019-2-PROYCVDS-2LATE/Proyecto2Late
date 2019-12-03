@@ -57,7 +57,7 @@
 
     FROM
       prestamo
-    WHERE #{id}=idrecurso;
+    WHERE #{rec.identificadorInterno}=idrecurso;
 
     </select>
 

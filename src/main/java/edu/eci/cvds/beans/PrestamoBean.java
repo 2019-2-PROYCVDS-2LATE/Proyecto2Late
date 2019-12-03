@@ -14,6 +14,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -56,21 +57,39 @@ public class PrestamoBean implements Serializable {
         HttpServletRequest request=(HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
         correoUsuario = request.getRemoteUser();
         eventModel = new DefaultScheduleModel();
+        cargarEventos();
+
+
     }
     
     public void cargarEventos(){
         List<Prestamo> prestamosUsuario = null;
         try {
             prestamosUsuario = serviciosBiblioteca.consultarPrestamosUsuario(correoUsuario);
-            System.out.println(prestamosUsuario.size());
+
         } catch (ServiciosBibliotecaException e) {
             e.printStackTrace();
         }
+        SimpleDateFormat formatter=new SimpleDateFormat("E, MMM dd yyyy HH:mm:ss");
         for (int i = 0; i<prestamosUsuario.size(); i++) {
-        	Date inicio = prestamosUsuario.get(i).getFechaInicio();
-        	Date fin = prestamosUsuario.get(i).getFechaFin();
+
+        	//Date inicio = prestamosUsuario.get(i).getFechaInicio();
+        	//Date fin = prestamosUsuario.get(i).getFechaFin();
             //System.out.println(inicio);
             //System.out.println(fin);
+        	Date fin = null;
+        	Date inicio = null;
+
+			try {
+				inicio = formatter.parse(prestamosUsuario.get(i).getFechaInicio());
+				fin = formatter.parse(prestamosUsuario.get(i).getFechaFin());
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+            System.out.println(inicio);
+            System.out.println(fin);
+
         	DefaultScheduleEvent event = new DefaultScheduleEvent("Prestamo",inicio,fin);
         	eventModel.addEvent(event);
         }
