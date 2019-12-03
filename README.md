@@ -2,7 +2,7 @@
 Esta es una aplicación para el control, administración y manejo de de los recursos que ofrece la biblioteca de la Escuela Colombiana de Ingeniería Julio Garavito.
 
 **Curso:** Ciclos de Vida del Desarrollo de Software \
-**Periodo académico:** 2019-1
+**Periodo académico:** 2019-2
 
 
 ## Integrantes y Roles
