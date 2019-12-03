@@ -80,8 +80,8 @@
 
 
                                     </h:form>
-                                    <p:dialog header = "#{rec.nombre}" widgetVar = "disponibilidad" height = "500">
-                                        <p:schedule id = "calendar" value = "#{recursoBean.getModelo(rec.identificadorInterno)}" widgetVar = "mySchedule"></p:schedule>
+                                    <p:dialog header = "Disponibilidad Recursos" widgetVar = "disponibilidad" height = "500">
+                                        <p:schedule id = "calendar" value = "#{recursoBean.eventModel}" widgetVar = "mySchedule"></p:schedule>
                                     </p:dialog>
                                 </p:column>
 
@@ -101,8 +101,6 @@
 <p:dialog header = "Reserva recurso" widgetVar = "reserva" height = "200" modal = "true">
     <h:form>
         <h:panelGrid columns = "2" cellpadding = "5" cellspacing = "150">
-            <h:outputText value="Verifique su correo:" />
-            <p:inputText id="marca2" value="#{prestamoBean.correoUsuario}" required="true"></p:inputText>
 
             <h:outputText value="Id Recurso:" />
             <p:inputText id="marca3" value="#{prestamoBean.idRecurso}" required="true"></p:inputText>
@@ -115,7 +113,7 @@
         </h:panelGrid>
 
         <div align="center">
-            <p:commandButton align = "center"  value="Reservar" action="#{prestamoBean.registrarPrestamo}"  />
+            <p:commandButton align = "center"  value="Reservar" action="#{prestamoBean.registrarPrestamo}"  oncomplete = "reserva.hide();" />
         </div>
     </h:form>
 </p:dialog>

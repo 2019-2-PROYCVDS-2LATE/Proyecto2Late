@@ -96,10 +96,28 @@ public class PrestamoBean implements Serializable {
     }
 
     public void registrarPrestamo() {
+        HttpServletRequest request=(HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+        correoUsuario = request.getRemoteUser();
+
         try {
             //System.out.println(correoUsuario + " " + idRecurso + " " + horaInicio + " " +fechaInicio+" "+duracion);
             Prestamo prestamo = new Prestamo(getCorreoUsuario(), getIdRecurso(), getFechaInicio(), getFechaFin());
             getServiciosBiblioteca().registrarPrestamo(prestamo);
+            SimpleDateFormat formatter=new SimpleDateFormat("E, MMM dd yyyy HH:mm:ss");
+            Date fin = null;
+            Date inicio = null;
+
+            try {
+                inicio = formatter.parse(getFechaInicio());
+                fin = formatter.parse(getFechaFin());
+            } catch (ParseException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+            DefaultScheduleEvent event = new DefaultScheduleEvent("Prestamo",inicio,fin);
+            eventModel.addEvent(event);
+            RecursoBean.añadirEvento(event);
             facesError("Registro Exitoso!");
         } catch (ServiciosBibliotecaException e) {
             facesError(e.getMessage());
@@ -110,7 +128,8 @@ public class PrestamoBean implements Serializable {
      *
      * @param recurso
      */
-    public void consultarPrestamoRecurso(String recurso){
+    /**
+    public void consultarPrestamoRecurso(Recurso recurso){
         List<Prestamo> prestamosRecurso = null;
         try{
             prestamosRecurso = serviciosBiblioteca.consultarPrestamosRecurso(recurso);
@@ -135,6 +154,7 @@ public class PrestamoBean implements Serializable {
 
         }
     }
+
     public void cancelarPrestamo(String correoUsuario,int idRecurso){
         try{
             serviciosBiblioteca.cancelarPrestamo(correoUsuario,idRecurso);

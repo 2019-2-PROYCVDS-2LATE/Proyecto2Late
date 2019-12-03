@@ -135,7 +135,7 @@ public class ServiciosBibliotecaImpl implements ServiciosBiblioteca{
     }
 
     @Override
-    public List<Prestamo> consultarPrestamosRecurso(String recurso) throws ServiciosBibliotecaException {
+    public List<Prestamo> consultarPrestamosRecurso(Recurso recurso) throws ServiciosBibliotecaException {
         List<Prestamo> prestamosRecurso = null;
         try{
             prestamosRecurso = prestamoDAO.consultarPrestamosRecurso(recurso);

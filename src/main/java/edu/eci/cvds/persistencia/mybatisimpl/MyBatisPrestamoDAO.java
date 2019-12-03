@@ -68,7 +68,7 @@ public class MyBatisPrestamoDAO implements PrestamoDAO{
     }
 
     @Override
-    public List<Prestamo> consultarPrestamosRecurso(String recurso) throws PersistenceException {
+    public List<Prestamo> consultarPrestamosRecurso(Recurso recurso) throws PersistenceException {
         return prestamoMapper.consultarPrestamosRecurso(recurso);
     }
 

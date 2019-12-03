@@ -27,7 +27,7 @@ public interface PrestamoDAO {
 
     public List<Prestamo> consultarPrestamosUsuario(String correoUsuario) throws PersistenceException;
 
-    public List<Prestamo> consultarPrestamosRecurso(String recurso) throws PersistenceException;
+    public List<Prestamo> consultarPrestamosRecurso(Recurso recurso) throws PersistenceException;
 
     public void cancelarPrestamo(String correoUsuario, int idRecurso) throws PersistenceException;
 }

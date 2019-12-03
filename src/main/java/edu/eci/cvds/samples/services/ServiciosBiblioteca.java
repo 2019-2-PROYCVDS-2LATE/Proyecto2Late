@@ -90,7 +90,7 @@ public interface ServiciosBiblioteca {
      * @return Todas las reservas con las que cuenta un recurso
      * @throws ServiciosBibliotecaException
      */
-    public List<Prestamo> consultarPrestamosRecurso(String recurso) throws ServiciosBibliotecaException;
+    public List<Prestamo> consultarPrestamosRecurso(Recurso recurso) throws ServiciosBibliotecaException;
 
     /**
      *
