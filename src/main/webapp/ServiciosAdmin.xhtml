@@ -70,9 +70,10 @@
 
                                 <p:column style="text-align: center; width:60px;">
                                     <h:form >
-                                    <p:commandLink onclick="PF('editar').show();">
-                                        <h:graphicImage value="img/icons/edit.jpeg" />
-                                    </p:commandLink>
+                                        <p:commandLink onclick="PF('editar').show();">
+                                            <h:graphicImage value="img/icons/edit.jpeg" />
+                                        </p:commandLink>
+                                    </h:form>
                                 </p:column>
                             </p:dataTable>
                         </p:fieldset>
@@ -87,7 +88,7 @@
             <h:panelGrid columns = "2" cellpadding = "5" cellspacing = "150">
 
                 <h:outputText value="Id Recurso:" />
-                <p:inputText id="marca3" value="#{prestamoBean.idRecurso}" required="true"></p:inputText>
+                <p:inputText id="marca3" value="#{recursoBean.identificadorInterno}" required="true"></p:inputText>
 
                 <h:outputText value="Nuevo Estado:" />
                 <p:inputText id="marca5" value="#{recursoBean.estado}" required="true"></p:inputText>
@@ -95,7 +96,7 @@
             </h:panelGrid>
 
             <div align="center">
-                <p:commandButton align = "center"  value="Registrar Cambio" action="#{recursoBean.modificarRecurso}"  oncomplete = "reserva.hide();" />
+                <p:commandButton align = "center"  value="Registrar Cambio" action="#{recursoBean.modificarRecurso}"  oncomplete = "editar.hide();" />
             </div>
         </h:form>
     </p:dialog>
