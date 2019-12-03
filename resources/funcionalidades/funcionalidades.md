@@ -19,6 +19,11 @@ Esta opción solo pueder ser usada por el administrador, allí puede seleccionar
 
 ![](añadirrecurso.png)
 
+### Registrar Usuario
+Esta nos permite registrar un usuario.
+
+![](registrarusuario.png)
+
 
 ## Modificar
 

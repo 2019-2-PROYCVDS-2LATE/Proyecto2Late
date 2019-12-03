@@ -51,9 +51,8 @@ public class AppTest
             assertTrue(usuarios.size()>0);
             */
 
-
-
-
+            Usuario usuario2 = biblioteca.consultarUsuario("yeison7f@gmail.com");
+            System.out.println(usuario2.getArea()+usuario2.getCorreo()+"");
         }
 
 

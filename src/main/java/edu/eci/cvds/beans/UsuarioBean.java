@@ -3,6 +3,7 @@ import edu.eci.cvds.samples.entities.Usuario;
 import edu.eci.cvds.samples.services.ServiciosBiblioteca;
 import edu.eci.cvds.samples.services.ServiciosBibliotecaException;
 import edu.eci.cvds.samples.services.ServiciosBibliotecaFactory;
+import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -69,7 +70,8 @@ public class UsuarioBean implements Serializable{
 
     public void save(){
         try{
-            Usuario usuario = new Usuario(correo,"Usuario",nombre,contraseña);
+
+            Usuario usuario = new Usuario(correo,"Usuario",nombre,new Sha256Hash(getContraseña()).toHex());
             serviciosBiblioteca.registrarUsuario(usuario);
             FacesContext.getCurrentInstance().getExternalContext().redirect("InicioSesion.xhtml");
             facesError("Registro exitoso");

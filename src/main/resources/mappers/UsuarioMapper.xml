@@ -8,7 +8,7 @@
     <mapper namespace="edu.eci.cvds.persistencia.mybatisimpl.mappers.UsuarioMapper">
 
     <insert parameterType="map" id="save">
-        INSERT INTO usuario (correo,nombre,rol,contraseña)
+        INSERT INTO usuario (correo,nombre,rol,contrasena)
         VALUES(#{usu.correo},#{usu.nombre}, #{usu.area},#{usu.contraseña});
     </insert>
 
@@ -16,7 +16,7 @@
 		<id property='correo' column='correo'/>
 		<result property='nombre' column='nombre'/>
         <result property='area' column='rol'/>
-        <result property='contraseña' column='contraseña'/>
+        <result property='contraseña' column='contrasena'/>
     </resultMap>
 
 
@@ -25,7 +25,7 @@
         correo,
         nombre,
         rol,
-        contraseña
+        contrasena
 
     FROM
         usuario
@@ -38,7 +38,7 @@
             correo,
             nombre,
             rol,
-            contraseña
+            contrasena
         FROM
             usuario;
     </select>
