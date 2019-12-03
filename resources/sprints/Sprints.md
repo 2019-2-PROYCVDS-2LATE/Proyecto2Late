@@ -25,7 +25,7 @@ para poder terminarlo a tiempo lo cual lo podemos obseravar en el burndown-chart
 completar.
 
 
-### Sprint 2
+### Sprint 3
 **Sprint-backlog**\
 ![Sprint-backlog](sprint3backlog.png)
 
