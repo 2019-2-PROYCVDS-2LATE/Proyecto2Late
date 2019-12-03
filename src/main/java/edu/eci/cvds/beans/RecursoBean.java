@@ -74,7 +74,7 @@ public class RecursoBean implements Serializable {
         for (int i = 0; i<recursosList.size(); i++){
             List<Prestamo> prestamosReserva = null;
             try {
-                prestamosReserva = serviciosBiblioteca.consultarPrestamosRecurso(recursosList.get(i));
+                prestamosReserva = serviciosBiblioteca.consultarPrestamosRecurso(recursosList.get(i).getNombre());
 
             } catch (ServiciosBibliotecaException e) {
                 e.printStackTrace();

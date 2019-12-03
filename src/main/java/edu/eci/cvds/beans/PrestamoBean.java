@@ -118,13 +118,21 @@ public class PrestamoBean implements Serializable {
         catch(ServiciosBibliotecaException e){
             e.printStackTrace();
         }
+        SimpleDateFormat formatter=new SimpleDateFormat("E, MMM dd yyyy HH:mm:ss");
         for(Prestamo p: prestamosRecurso){
-            Date inicio = p.getFechaInicio();
-            Date fin = p.getFechaFin();
+            Date inicio = null;
+            try {
+                inicio = formatter.parse( p.getFechaInicio() );
+                Date fin = formatter.parse( p.getFechaFin() );
+                DefaultScheduleEvent event = new DefaultScheduleEvent("Prestamo",inicio,fin);
+                eventModel.addEvent(event);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
             //System.out.println(inicio);
             //System.out.println(fin);
-            DefaultScheduleEvent event = new DefaultScheduleEvent("Prestamo",inicio,fin);
-            eventModel.addEvent(event);
+
         }
     }
     public void cancelarPrestamo(String correoUsuario,int idRecurso){
