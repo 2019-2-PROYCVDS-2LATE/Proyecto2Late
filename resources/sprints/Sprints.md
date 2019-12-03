@@ -23,3 +23,14 @@ completo este sprint.
 Para este sprint nos sucedio lo mismo que en el primero por los cual nos toco realizar las tareas lo mas rapido posible 
 para poder terminarlo a tiempo lo cual lo podemos obseravar en el burndown-chart, además nos faltaron ciertas tareas por 
 completar.
+
+
+### Sprint 2
+**Sprint-backlog**\
+![Sprint-backlog](sprint3backlog.png)
+
+**Sprint-burndown chart**\
+![Sprint-burndown chart](sprint3burndownchart.png)
+
+##### Resumen del sprint
+Para este sprint no logramos completarlo completo.
