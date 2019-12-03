@@ -26,6 +26,7 @@
                 </div>
                 <div class="collapse navbar-collapse navbar-right" id="mynavbar">
                     <ul class="nav navbar-nav">
+                        <li><a>#{request.remoteUser}</a></li>
                         <li><a onclick="PF('reserva').show();">Añadir Recurso</a></li>
                         <li><a href="/logout">Cerrar Sesión</a></li>
                     </ul>
@@ -83,7 +84,7 @@
         </div>
     </div>
 
-    <p:dialog header = "Reserva recurso" widgetVar = "editar" height = "200" modal = "true">
+    <p:dialog header = "Reserva recurso" widgetVar = "editar" height = "100" modal = "true">
         <h:form>
             <h:panelGrid columns = "2" cellpadding = "5" cellspacing = "150">
 
@@ -96,12 +97,12 @@
             </h:panelGrid>
 
             <div align="center">
-                <p:commandButton align = "center"  value="Registrar Cambio" action="#{recursoBean.modificarRecurso}"  oncomplete = "editar.hide();" />
+                <p:commandButton align = "center"  value="Registrar Cambio" action="#{recursoBean.modificarRecurso}"  oncomplete = "editar.hide();" update = "form"/>
             </div>
         </h:form>
     </p:dialog>
 
-    <p:dialog header = "Añadir Recurso" widgetVar = "reserva" height = "200">
+    <p:dialog id = "add" header = "Añadir Recurso" widgetVar = "reserva" height = "140">
         <h:form>
             <h:panelGrid columns = "2" cellpadding = "5" cellspacing = "150">
                 <h:outputText value="Nombre:" />
@@ -121,7 +122,7 @@
             </h:panelGrid>
 
             <div align="center">
-                <p:commandButton align = "center"  value="Añadir" action="#{recursoBean.registrarRecurso}"  />
+                <p:commandButton align = "center"  value="Añadir" action="#{recursoBean.registrarRecurso}"  oncomplete = "add.hide();" update = "form"/>
             </div>
         </h:form>
 
