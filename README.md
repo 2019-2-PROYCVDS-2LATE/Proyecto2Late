@@ -74,4 +74,4 @@ entre los integrantes.
 [Taiga backlog](https://tree.taiga.io/project/camu10-gestion-de-recursos-biblioteca/backlog)
 
 ## Sprints
-Ver la documentación de los [sprints](resources/sprints/Sprints.md)
+Para ver la documentación de los [sprints](resources/sprints/Sprints.md)
