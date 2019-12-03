@@ -73,7 +73,7 @@ public class UsuarioBean implements Serializable{
             serviciosBiblioteca.registrarUsuario(usuario);
             FacesContext.getCurrentInstance().getExternalContext().redirect("IncioSesion.xhtml");
             facesError("Registro exitoso");
-        } catch (ServiciosBibliotecaException e) {
+        } catch (Exception e) {
             facesError(e.getMessage());
         }
     }
