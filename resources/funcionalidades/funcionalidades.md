@@ -6,8 +6,8 @@ Podemos consultar los recursos sin la necesidad de estar con una sesión activa.
 ![](consultarsininicio.png)
 
 
-## Inicio de Sesion
-Aqui el usuario puede realizar su inicio de sesion con sus credenciales.
+## Inicio de Sesión
+Aqui el usuario puede realizar su inicio de sesión con sus credenciales.
 
 ![](iniciosesion.png)
 
@@ -15,7 +15,7 @@ Aqui el usuario puede realizar su inicio de sesion con sus credenciales.
 ## Registrar
 
 ### Registrar Recurso
-Esta opción solo pueder ser usada por el administrador, alli puede seleccionar el tipo de recurso y rellenar los campos necesario.Al usuario también se le muestra los elementos registrados en la base de datos en la parte de atras.
+Esta opción solo pueder ser usada por el administrador, allí puede seleccionar el tipo de recurso y rellenar los campos necesario. Al usuario también se le muestra los elementos registrados en la base de datos en la parte de atras.
 
 ![](añadirrecurso.png)
 
@@ -38,6 +38,6 @@ Podemos consultar la disponibilidad de cada resurso
 ![](disponibilidadrecurso.png)
 
 ## Reservas por usuario
-Aqui podemos ver las reservar que tiene el usuauio acrtivas
+Aqui podemos ver las reservas que tiene el usuario activas
 
 ![](calendarioreserva.png)

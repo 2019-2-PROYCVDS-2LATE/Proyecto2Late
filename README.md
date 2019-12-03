@@ -32,7 +32,7 @@ Para poder utilizar todos los servicios que ofrece la aplicación es necesario r
 + **Contraseña:** *12345*
 
 
-Ver [funcionalidades](resources/funcionalidades/funcionalidades.md)
+Para ver las [funcionalidades mas importantes](resources/funcionalidades/funcionalidades.md)
 
 
 ## Arquitectura y Diseño
